@@ -31,5 +31,9 @@ Al día siguiente, Sara quiere buscar la nueva Oportunidad. La identificación d
 Quiere llamar a Mike para verificar el trato. Lamentablemente, dice que han decidido comprar a otra empresa de camiones. Sara escribe "cerrado-perdido 24" y el CRM cambia el estado de la oportunidad 24 a "CERRADO-PERDIDO"
 
 
-
-
+### Diagrams
+Case diagram
+![Case diagram](src/main/java/com/ironhack/img/crm_case_diagram.png?raw=true "Case diagram")
+***
+Class diagram
+![Class diagram](src/main/java/com/ironhack/img/crm_class_diagram.png?raw=true "Class diagram")
