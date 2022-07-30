@@ -1,5 +1,7 @@
 package com.ironhack.classes;
 
+import com.fasterxml.uuid.Generators;
+
 public class Lead {
 
     private String id;
@@ -8,20 +10,20 @@ public class Lead {
     private String email;
     private String companyName;
 
-    public Lead(String id, String name, String phoneNumber, String email, String companyName) {
-        this.id = id;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.companyName = companyName;
+    public Lead( String name, String phoneNumber, String email, String companyName) {
+        setId();
+        setName(name);
+        setPhoneNumber(phoneNumber);
+        setEmail(email);
+        setCompanyName(companyName);
     }
 
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId() {
+        this.id = Generators.randomBasedGenerator().generate().toString();
     }
 
     public String getName() {
@@ -58,11 +60,6 @@ public class Lead {
 
     @Override
     public String toString() {
-        return "Lead{" + "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
-                ", companyName='" + companyName + '\'' +
-                '}';
+        return "Lead{" + "id='" + id + '\'' + ", name='" + name + '\'' + ", phoneNumber='" + phoneNumber + '\'' + ", email='" + email + '\'' + ", companyName='" + companyName + '\'' + '}';
     }
 }
