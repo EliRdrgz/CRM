@@ -11,7 +11,7 @@ public class Menu {
 
     private String option;
 
-    public void showMenu() {
+    public void showMenu(LeadList leadList) {
         scanner = new Scanner(System.in);
         while (!exit) {
             System.out.println("Welcome to CRM. What would you like to do?");
@@ -54,7 +54,7 @@ public class Menu {
         System.out.println("Lead created: " + lead);
     }
 
-    private void showLeads() {
+    private void showLeads(LeadList leadList) {
         System.out.println("This is the list of all leads");
         System.out.println("-----------------------------");
     }

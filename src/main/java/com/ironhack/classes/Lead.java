@@ -5,28 +5,70 @@ import com.fasterxml.uuid.Generators;
 public class Lead {
 
     private String id;
+    private static int counter = 0;
+    private String name;
+    private String phoneNumber;
+    private String email;
+    private String companyName;
 
-    private Contact contact;
-    public Lead( String name, Contact contact) {
+    public Lead(String name, String phoneNumber, String email, String companyName) {
         setId();
-        setContact(contact);
+        setName(name);
+        setPhoneNumber(phoneNumber);
+        setEmail(email);
+        setCompanyName(companyName);
+
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
 
     public String getId() {
         return id;
     }
 
     public void setId() {
-        this.id = Generators.randomBasedGenerator().generate().toString();
-    }
-
-    public void setContact(Contact contact) {
-        this.contact = contact;
+        this.id = counter++ + "";
     }
 
 
     @Override
     public String toString() {
-        return "Lead{" + "id='" + id + '\'' + ", name='" + contact.getName() + '\'' + ", phoneNumber='" + contact.getPhoneNumber() + '\'' + ", email='" + contact.getEmail() + '\'' + ", companyName='" + contact.getCompanyName()+ '\'' + '}';
+        return "Lead{" + "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", companyName='" + companyName + '\'' +
+                '}';
     }
 }

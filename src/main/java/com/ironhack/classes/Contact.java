@@ -10,12 +10,12 @@ public class Contact {
     private String email;
     private String companyName;
 
-    public Contact(String name, String phoneNumber, String email, String companyName) {
+    public Contact(Lead lead) {
         setContactId();
-       setName(name);
-        setPhoneNumber(phoneNumber);
-        setEmail(email);
-        setCompanyName(companyName);
+        setName(lead.getName());
+        setPhoneNumber(lead.getPhoneNumber());
+        setEmail(lead.getEmail());
+        setCompanyName(lead.getCompanyName());
     }
 
     public String getName() {
