@@ -4,15 +4,15 @@ import com.ironhack.enums.OpportunityStatus;
 
 import java.util.Arrays;
 
-public class Opportunity extends Lead{
+public class Opportunity extends Lead {
 
-    private Product productList [];
+    private Product productList[];
     private Contact decisionMaker;
     private OpportunityStatus status;
     private Account account;
 
     public Opportunity(String id, String name, String phoneNumber, String email, String companyName, Product[] productList, Contact decisionMaker, OpportunityStatus status, Account account) {
-        super(id, name, phoneNumber, email, companyName);
+        super(name, phoneNumber, email, companyName);
         this.productList = productList;
         this.decisionMaker = decisionMaker;
         this.status = status;
@@ -53,10 +53,6 @@ public class Opportunity extends Lead{
 
     @Override
     public String toString() {
-        return "Opportunity{" + "productList=" + (productList == null ? "null" : Arrays.asList(productList).toString()) +
-                ", decisionMaker=" + decisionMaker +
-                ", status=" + status +
-                ", account=" + account +
-                '}';
+        return "Opportunity{" + "productList=" + (productList == null ? "null" : Arrays.asList(productList).toString()) + ", decisionMaker=" + decisionMaker + ", status=" + status + ", account=" + account + '}';
     }
 }

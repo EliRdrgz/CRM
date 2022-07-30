@@ -8,6 +8,6 @@ public enum TypeOfProduct {
     FLATBED,
     BOX;
 
-    private BigDecimal price;
+
 
 }
