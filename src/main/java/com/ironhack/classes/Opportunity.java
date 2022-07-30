@@ -12,7 +12,7 @@ public class Opportunity extends Lead{
     private Account account;
 
     public Opportunity(String id, String name, String phoneNumber, String email, String companyName, Product[] productList, Contact decisionMaker, OpportunityStatus status, Account account) {
-        super(id, name, phoneNumber, email, companyName);
+        super(name, phoneNumber, email, companyName);
         this.productList = productList;
         this.decisionMaker = decisionMaker;
         this.status = status;
