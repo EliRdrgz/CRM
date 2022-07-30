@@ -1,7 +1,9 @@
 package com.ironhack.menu;
 
 import com.ironhack.classes.Lead;
+import com.ironhack.classes.LeadList;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
@@ -24,17 +26,17 @@ public class Menu {
             option = scanner.nextLine().toUpperCase();
 
             switch (option) {
-                case "NEW LEAD" -> newLeadInfo();
-                case "SHOW LEADS" -> System.out.println("option 2");
-                case "LOOKUP LEAD ID" -> System.out.println("option 3");
-                case "CONVERT ID" ->  System.out.println("option 4");
+                case "NEW LEAD" -> newLeadInfo(leadList);
+                case "SHOW LEADS" -> showLeads(leadList);
+                case "LOOKUP LEAD ID" -> searchLead(leadList);
+                case "CONVERT ID" -> System.out.println("option 4");
                 case "EXIT" -> exit = true;
                 default -> System.out.println("Choose a correct option.");
             }
         }
     }
 
-    private void newLeadInfo() {
+    private void newLeadInfo(LeadList leadList) {
         System.out.println("Enter lead details");
         System.out.println("------------------");
 
@@ -51,21 +53,25 @@ public class Menu {
         String companyName = scanner.nextLine();
 
         Lead lead = new Lead(name, phoneNumber, email, companyName);
+        leadList.addLead(lead);
         System.out.println("Lead created: " + lead);
     }
 
     private void showLeads(LeadList leadList) {
         System.out.println("This is the list of all leads");
         System.out.println("-----------------------------");
+        ArrayList<Lead> allLeads = leadList.showAllLeads();
+        for (Lead lead : allLeads
+        ) {
+            System.out.println(lead.toString());
+        }
     }
 
-    private void searchLead() {
+    private void searchLead(LeadList leadList) {
         System.out.println("Enter lead id");
         System.out.println("-------------");
         int id = scanner.nextInt();
-        //TODO Connectar con el método searchId() de la clase Lead/L
+        leadList.get(id);
     }
-
-
 
 }
