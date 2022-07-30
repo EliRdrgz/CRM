@@ -8,7 +8,7 @@ public class Lead {
     private String email;
     private String companyName;
 
-    public Lead(String id, String name, String phoneNumber, String email, String companyName) {
+    public Lead(String name, String phoneNumber, String email, String companyName) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
