@@ -11,12 +11,16 @@ public class OpportunityList {
     }
 
 
-    public void addOpportunity(Opportunity opportunity,LeadList leadList) {
+    public void addOpportunity(Opportunity opportunity) {
         opportunities.add(opportunity);
-
-
     }
-
+    public String showAllOpportunities(){
+        String response = "";
+        for (Opportunity opportunity : opportunities) {
+            response += opportunity.toString()+ "\n\r";
+        }
+        return response;
+    }
     public void removeOpportunity(Opportunity opportunity) {
         opportunities.remove(opportunity);
     }

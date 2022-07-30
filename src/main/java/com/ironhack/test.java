@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import com.ironhack.classes.*;
 import com.ironhack.enums.Industry;
 import com.ironhack.enums.OpportunityStatus;
+import com.ironhack.enums.TypeOfProduct;
 import com.ironhack.menu.Menu;
 
 public class test {
@@ -21,17 +22,26 @@ public class test {
         //create TestOpportunity
 
 
-        System.out.println("LeadList-->"+leadList.showAllLeads());
-        System.out.println("leads size-->"+leadList.size());
-        System.out.println("lead3-->"+leadList.get(3));
-        Contact testContact = new Contact(leadList.get(3));
+        System.out.println("LeadList-->" + leadList.showAllLeads().toString());
+        System.out.println("leads size-->" + leadList.size());
+        System.out.println("lead3-->" + leadList.getLeadById("3").toString());
 
-/*
+        Contact testContact = new Contact(leadList.get(3),leadList);
+        System.out.println(testContact);
+        Account testAccount = new Account(Industry.ECOMMERCE, faker.number().toString(), faker.company().name(), faker.company().name(), testContact);
+        Product testProduct = new Product(TypeOfProduct.BOX, 22);
+        Product[] products = new Product[2];
+        products[0] = testProduct;
+        Opportunity testOpportunity = new Opportunity(products, testContact, OpportunityStatus.OPEN,testAccount);
+        opportunityList.addOpportunity(testOpportunity);
+        opportunityList.addOpportunity(testOpportunity);
+        System.out.println(testOpportunity.toString());
+        testOpportunity.setStatus(OpportunityStatus.CLOSED_WON);
+        System.out.println(testOpportunity.toString());
+        testOpportunity.setStatus(OpportunityStatus.CLOSED_LOST);
+        System.out.println(testOpportunity.toString());
 
-        Account testAccount = new Account(Industry.ECOMMERCE, faker.number().toString(),faker.company().name(),faker.company().name(),testContact);
-        Opportunity testOpportunity = new Opportunity(leadList.get(3), null, null, OpportunityStatus.OPEN, null);
-        System.out.println("lead3-->"+leadList.get(3));
-*/
+        System.out.println("OpportunityList-->\n" + opportunityList.showAllOpportunities());
 
 
     }

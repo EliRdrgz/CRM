@@ -1,6 +1,5 @@
 package com.ironhack.classes;
 
-import com.fasterxml.uuid.Generators;
 
 public class Lead {
 
@@ -60,6 +59,7 @@ public class Lead {
     public void setId() {
         this.id = counter++ + "";
     }
+
 
 
     @Override

@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7360b7c6-635c-4d96-b489-66b4ce401af9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/test.java" afterDir="false" />
+    <list default="true" id="7360b7c6-635c-4d96-b489-66b4ce401af9" name="Changes" comment="change classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Contact.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Lead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Lead.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java" afterDir="false" />
-    </list>
-    <list id="73516dc0-561e-41c0-8740-d27f0e486563" name="Changes by admincvo" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/LeadList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/LeadList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Opportunity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Opportunity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/OpportunityList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/OpportunityList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,24 +29,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java">
-      <ranges>
-        <range start1="3" end1="3" start2="3" end2="4" changelist="73516dc0-561e-41c0-8740-d27f0e486563" />
-        <range start1="4" end1="4" start2="5" end2="6" changelist="73516dc0-561e-41c0-8740-d27f0e486563" />
-        <range start1="13" end1="14" start2="15" end2="16" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
-        <range start1="26" end1="30" start2="28" end2="32" changelist="73516dc0-561e-41c0-8740-d27f0e486563" />
-        <range start1="36" end1="37" start2="38" end2="39" changelist="73516dc0-561e-41c0-8740-d27f0e486563" />
-        <range start1="53" end1="53" start2="55" end2="56" changelist="73516dc0-561e-41c0-8740-d27f0e486563" />
-        <range start1="56" end1="57" start2="59" end2="60" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
-        <range start1="59" end1="59" start2="62" end2="67" changelist="73516dc0-561e-41c0-8740-d27f0e486563" />
-        <range start1="61" end1="62" start2="69" end2="70" changelist="73516dc0-561e-41c0-8740-d27f0e486563" />
-        <range start1="65" end1="66" start2="73" end2="74" changelist="73516dc0-561e-41c0-8740-d27f0e486563" />
-        <range start1="68" end1="70" start2="76" end2="76" changelist="73516dc0-561e-41c0-8740-d27f0e486563" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -97,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657971477201</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="change classes">
+      <created>1659208762011</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1659208762011</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,6 +112,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="git ignore done" />
-    <option name="LAST_COMMIT_MESSAGE" value="git ignore done" />
+    <MESSAGE value="change classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="change classes" />
   </component>
 </project>

@@ -4,7 +4,19 @@ import com.ironhack.enums.TypeOfProduct;
 
 public class Product {
 
-    private TypeOfProduct product;
-    private int quantity;
+    final TypeOfProduct product;
+    final int quantity;
 
+    public Product(TypeOfProduct product, int quantity) {
+        this.product = product;
+        this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "product=" + product +
+                ", quantity=" + quantity +
+                '}';
+    }
 }

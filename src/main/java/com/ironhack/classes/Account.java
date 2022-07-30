@@ -4,6 +4,8 @@ import com.ironhack.enums.Industry;
 
 public class Account {
 
+    private String id;
+    private static int counter = 0;
     private Industry industry;
     private String employees;
     private String city;
@@ -12,11 +14,20 @@ public class Account {
     private OpportunityList opportunityList;
 
     public Account(Industry industry, String employees, String city, String contact, Contact contactList) {
+        setId();
         this.industry = industry;
         this.employees = employees;
         this.city = city;
         this.contact = contact;
         this.contactList = contactList;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId() {
+        this.id = counter ++ + "";
     }
 
     public Industry getIndustry() {
@@ -61,6 +72,18 @@ public class Account {
 
     public OpportunityList getOpportunityList() {
         return opportunityList;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "industry=" + industry +
+                ", employees='" + employees + '\'' +
+                ", city='" + city + '\'' +
+                ", contact='" + contact + '\'' +
+                ", contactList=" + contactList +
+                ", opportunityList=" + opportunityList +
+                '}';
     }
 
     public void setOpportunityList(OpportunityList opportunityList) {

@@ -10,12 +10,13 @@ public class Contact {
     private String email;
     private String companyName;
 
-    public Contact(Lead lead) {
+    public Contact(Lead lead,LeadList leadList) {
         setContactId();
         setName(lead.getName());
         setPhoneNumber(lead.getPhoneNumber());
         setEmail(lead.getEmail());
         setCompanyName(lead.getCompanyName());
+        leadList.removeLead(lead);
     }
 
     public String getName() {
@@ -56,5 +57,16 @@ public class Contact {
 
     public void setContactId() {
         this.contactId = Generators.randomBasedGenerator().generate().toString();
+    }
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "contactId='" + contactId + '\'' +
+                ", name='" + name + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", companyName='" + companyName + '\'' +
+                '}';
     }
 }

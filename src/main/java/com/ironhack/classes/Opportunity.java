@@ -5,16 +5,27 @@ import com.ironhack.enums.OpportunityStatus;
 import java.util.Arrays;
 
 public class Opportunity  {
-
+    private String id;
+    private static int counter = 0;
     private Product productList[];
     private Contact decisionMaker;
     private OpportunityStatus status;
     private Account account;
 
-    public Opportunity(  Product[] productList, Contact decisionMaker, OpportunityStatus status) {
+    public Opportunity(  Product[] productList, Contact decisionMaker, OpportunityStatus status, Account account) {
+        setId();
         this.productList = productList;
         this.decisionMaker = decisionMaker;
         this.status = status;
+        this.account = account;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId() {
+        this.id = counter ++ + "";
     }
 
     public Product[] getProductList() {
