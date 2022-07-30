@@ -4,19 +4,17 @@ import com.ironhack.enums.OpportunityStatus;
 
 import java.util.Arrays;
 
-public class Opportunity extends Lead {
+public class Opportunity  {
 
     private Product productList[];
     private Contact decisionMaker;
     private OpportunityStatus status;
     private Account account;
 
-    public Opportunity(String id, String name, String phoneNumber, String email, String companyName, Product[] productList, Contact decisionMaker, OpportunityStatus status, Account account) {
-        super(name, phoneNumber, email, companyName);
+    public Opportunity(  Product[] productList, Contact decisionMaker, OpportunityStatus status) {
         this.productList = productList;
         this.decisionMaker = decisionMaker;
         this.status = status;
-        this.account = account;
     }
 
     public Product[] getProductList() {

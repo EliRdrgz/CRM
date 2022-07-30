@@ -3,10 +3,18 @@ package com.ironhack.classes;
 import java.util.ArrayList;
 
 public class OpportunityList {
-    private ArrayList<Opportunity> opportunities;
+    public ArrayList<Opportunity> opportunities= new ArrayList<>();
 
-    public void addOpportunity(Opportunity opportunity) {
+
+    public Opportunity get(int index) {
+        return opportunities.get(index);
+    }
+
+
+    public void addOpportunity(Opportunity opportunity,LeadList leadList) {
         opportunities.add(opportunity);
+
+
     }
 
     public void removeOpportunity(Opportunity opportunity) {

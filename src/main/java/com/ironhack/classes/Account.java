@@ -9,15 +9,14 @@ public class Account {
     private String city;
     private String contact;
     private Contact contactList;
-    private Opportunity opportunityList;
+    private OpportunityList opportunityList;
 
-    public Account(Industry industry, String employees, String city, String contact, Contact contactList, Opportunity opportunityList) {
+    public Account(Industry industry, String employees, String city, String contact, Contact contactList) {
         this.industry = industry;
         this.employees = employees;
         this.city = city;
         this.contact = contact;
         this.contactList = contactList;
-        this.opportunityList = opportunityList;
     }
 
     public Industry getIndustry() {
@@ -60,11 +59,11 @@ public class Account {
         this.contactList = contactList;
     }
 
-    public Opportunity getOpportunityList() {
+    public OpportunityList getOpportunityList() {
         return opportunityList;
     }
 
-    public void setOpportunityList(Opportunity opportunityList) {
+    public void setOpportunityList(OpportunityList opportunityList) {
         this.opportunityList = opportunityList;
     }
 }

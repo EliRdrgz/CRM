@@ -1,18 +1,60 @@
 package com.ironhack.classes;
 
+import com.fasterxml.uuid.Generators;
+
 public class Contact {
 
     private String contactId;
+    private String name;
+    private String phoneNumber;
+    private String email;
+    private String companyName;
 
-    public Contact(String contactId) {
-        this.contactId = contactId;
+    public Contact(String name, String phoneNumber, String email, String companyName) {
+        setContactId();
+       setName(name);
+        setPhoneNumber(phoneNumber);
+        setEmail(email);
+        setCompanyName(companyName);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
     public String getContactId() {
         return contactId;
     }
 
-    public void setContactId(String contactId) {
-        this.contactId = contactId;
+    public void setContactId() {
+        this.contactId = Generators.randomBasedGenerator().generate().toString();
     }
 }
