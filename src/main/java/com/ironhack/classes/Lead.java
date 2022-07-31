@@ -60,15 +60,13 @@ public class Lead {
         this.id = counter++ + "";
     }
 
-
-
     @Override
     public String toString() {
-        return "Lead{" + "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
-                ", companyName='" + companyName + '\'' +
-                '}';
+        return "--------------------------------------------\n" +
+                "LEAD ID: " + id + "\n" +
+                "NAME: " + name + "\n" +
+                "PHONE: " + phoneNumber + "\n" +
+                "EMAIL: " + email + "\n" +
+                "COMPANY: " + companyName;
     }
 }
