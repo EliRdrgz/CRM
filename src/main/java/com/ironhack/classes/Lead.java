@@ -40,7 +40,27 @@ public class Lead {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        int at = 0;
+        boolean dot = false;
+        boolean space = false;
+        for (int i = 0; i < email.length(); i++) {
+            if (email.charAt(i) == '@') {
+                at++;
+            }
+            if(email.charAt(i)=='.'){
+                dot = true;
+            }
+            if(email.charAt(i)==' '){
+                space = true;
+            }
+        }
+        if(at==1 && dot  && !space){
+            this.email = email;
+        }
+        else{
+            System.out.println("Enter a valid email, please.");
+        }
+
     }
 
     public String getCompanyName() {
@@ -64,9 +84,9 @@ public class Lead {
     public String toString() {
         return "--------------------------------------------\n" +
                 "LEAD ID: " + id + "\n" +
-                "NAME: " + name + "\n" +
-                "PHONE: " + phoneNumber + "\n" +
-                "EMAIL: " + email + "\n" +
-                "COMPANY: " + companyName;
+                "NAME: " + name + "\n" ;
+//                "PHONE: " + phoneNumber + "\n" +  LO COMENTO PQ EN EL PUNTO 8 PONE: A list of all Leads’ id and name can be displayed by typing “Show Leads” (case insensitive).
+//                "EMAIL: " + email + "\n" +
+//                "COMPANY: " + companyName;
     }
 }

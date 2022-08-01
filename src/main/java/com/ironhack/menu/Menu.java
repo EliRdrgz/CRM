@@ -1,8 +1,10 @@
 package com.ironhack.menu;
 
-import com.ironhack.classes.Lead;
-import com.ironhack.classes.LeadList;
+import com.ironhack.classes.*;
+import com.ironhack.enums.TypeOfProduct;
+import jdk.swing.interop.SwingInterOpUtils;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -29,7 +31,7 @@ public class Menu {
                 case "NEW LEAD" -> newLeadInfo(leadList);
                 case "SHOW LEADS" -> showLeads(leadList);
                 case "LOOKUP LEAD ID" -> searchLead(leadList);
-                case "CONVERT ID" -> System.out.println("option 4");
+                case "CONVERT ID" -> convertId(leadList);
                 case "EXIT" -> exit = true;
                 default -> System.out.println("Choose a correct option.");
             }
@@ -65,13 +67,40 @@ public class Menu {
         ) {
             System.out.println(lead.toString());
         }
+        System.out.println("-----------------------------");
+        System.out.println("Total leads at the data base: "+allLeads.size());
     }
 
     private void searchLead(LeadList leadList) {
-        System.out.println("Enter lead id");
+        System.out.println("Enter lead id: ");
         System.out.println("-------------");
         int id = scanner.nextInt();
-        leadList.get(id);
+//        leadList.get(id);
+        System.out.println(leadList.get(id));
     }
+
+    private void convertId(LeadList leadList){
+        System.out.println("Enter lead id to convert to opportunity: ");
+        System.out.println("-------------");
+        String id = scanner.nextLine();
+        //System.out.println(leadList.getLeadById(id));
+        Lead leadConvert = leadList.getLeadById(id);
+        Contact contact = new Contact(leadConvert, leadList);
+        System.out.println("Now the lead with id " + id + " is a new contact.");
+        System.out.println(contact);
+        System.out.println("In which type of product are you interested?");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("HYBRID");
+        System.out.println("FLATBED");
+        System.out.println("BOX");
+        option = scanner.nextLine().toUpperCase();
+        TypeOfProduct type = TypeOfProduct.valueOf(option);
+        System.out.println("How many of those?");
+        int quantity = scanner.nextInt();
+        Product product = new Product(type, quantity);
+        System.out.println(product);
+    }
+
+
 
 }
