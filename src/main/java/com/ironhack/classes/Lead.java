@@ -76,9 +76,6 @@ public class Lead {
     }
 
 
-    public String getId() {
-        return id;
-    }
 
     public void setId() {
         this.id = counter++ + "";
@@ -88,9 +85,9 @@ public class Lead {
     public String toString() {
         return "--------------------------------------------\n" +
                 "LEAD ID: " + id + "\n" +
-                "NAME: " + name + "\n" ;
-//                "PHONE: " + phoneNumber + "\n" +  LO COMENTO PQ EN EL PUNTO 8 PONE: A list of all Leads’ id and name can be displayed by typing “Show Leads” (case insensitive).
-//                "EMAIL: " + email + "\n" +
-//                "COMPANY: " + companyName;
+                "NAME: " + name + "\n" +
+                "PHONE: " + phoneNumber + "\n" +
+                "EMAIL: " + email + "\n" +
+                "COMPANY: " + companyName;
     }
 }

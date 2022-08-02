@@ -43,7 +43,6 @@ public class Main {
         System.out.println("lead3-->"+leadList.get(3));
         */
 
-        new Menu().showMenu();
 
     }
 }
