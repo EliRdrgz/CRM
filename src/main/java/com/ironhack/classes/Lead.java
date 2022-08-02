@@ -1,27 +1,26 @@
 package com.ironhack.classes;
 
+
 public class Lead {
 
     private String id;
+    private static int counter = 0;
     private String name;
     private String phoneNumber;
     private String email;
     private String companyName;
 
     public Lead(String name, String phoneNumber, String email, String companyName) {
-        this.id = id;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.companyName = companyName;
+
+        setId();
+        setName(name);
+        setPhoneNumber(phoneNumber);
+        setEmail(email);
+        setCompanyName(companyName);
     }
 
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -45,7 +44,27 @@ public class Lead {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        int at = 0;
+        boolean dot = false;
+        boolean space = false;
+        for (int i = 0; i < email.length(); i++) {
+            if (email.charAt(i) == '@') {
+                at++;
+            }
+            if(email.charAt(i)=='.'){
+                dot = true;
+            }
+            if(email.charAt(i)==' '){
+                space = true;
+            }
+        }
+        if(at==1 && dot  && !space){
+            this.email = email;
+        }
+        else{
+            System.out.println("Enter a valid email, please.");
+        }
+
     }
 
     public String getCompanyName() {
@@ -56,13 +75,19 @@ public class Lead {
         this.companyName = companyName;
     }
 
+
+
+    public void setId() {
+        this.id = counter++ + "";
+    }
+
     @Override
     public String toString() {
-        return "Lead{" + "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
-                ", companyName='" + companyName + '\'' +
-                '}';
+        return "--------------------------------------------\n" +
+                "LEAD ID: " + id + "\n" +
+                "NAME: " + name + "\n" +
+                "PHONE: " + phoneNumber + "\n" +
+                "EMAIL: " + email + "\n" +
+                "COMPANY: " + companyName;
     }
 }

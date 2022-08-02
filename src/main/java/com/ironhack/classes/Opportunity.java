@@ -2,28 +2,45 @@ package com.ironhack.classes;
 
 import com.ironhack.enums.OpportunityStatus;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Opportunity extends Lead{
-
-    private Product productList [];
+public class Opportunity  {
+    private String id;
+    private static int counter = 0;
+    private ArrayList<Product> productList;
     private Contact decisionMaker;
     private OpportunityStatus status;
     private Account account;
 
-    public Opportunity(String id, String name, String phoneNumber, String email, String companyName, Product[] productList, Contact decisionMaker, OpportunityStatus status, Account account) {
-        super(name, phoneNumber, email, companyName);
+
+    public Opportunity(ArrayList<Product> productList, Contact decisionMaker, OpportunityStatus status, Account account) {
+        setId();
         this.productList = productList;
         this.decisionMaker = decisionMaker;
         this.status = status;
         this.account = account;
     }
 
-    public Product[] getProductList() {
+    public Opportunity(ArrayList<Product> productList, Contact decisionMaker, OpportunityStatus status) {
+        this.productList = productList;
+        this.decisionMaker = decisionMaker;
+        this.status = status;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId() {
+        this.id = counter ++ + "";
+    }
+
+    public ArrayList<Product> getProductList() {
         return productList;
     }
 
-    public void setProductList(Product[] productList) {
+    public void setProductList(ArrayList<Product> productList) {
         this.productList = productList;
     }
 
@@ -53,10 +70,6 @@ public class Opportunity extends Lead{
 
     @Override
     public String toString() {
-        return "Opportunity{" + "productList=" + (productList == null ? "null" : Arrays.asList(productList).toString()) +
-                ", decisionMaker=" + decisionMaker +
-                ", status=" + status +
-                ", account=" + account +
-                '}';
+        return "Opportunity: "+'\n' + "ProductList: " + (productList == null ? "null" : Arrays.asList(productList).toString()) +'\n'+ "DecisionMaker: " + decisionMaker + '\n'+"Status: " + status + '\n'+"Account: " + account;
     }
 }
