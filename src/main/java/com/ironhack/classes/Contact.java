@@ -61,12 +61,11 @@ public class Contact {
 
     @Override
     public String toString() {
-        return "Contact{" +
-                "contactId='" + contactId + '\'' +
-                ", name='" + name + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
-                ", companyName='" + companyName + '\'' +
-                '}';
+        return  "ContactId: " + contactId + '\n' +
+                "Name: " + name + '\n' +
+                "PhoneNumber: " + phoneNumber + '\n' +
+                "Email: " + email + '\n' +
+                "CompanyName:" + companyName;
+
     }
 }

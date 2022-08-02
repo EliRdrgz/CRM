@@ -13,6 +13,8 @@ public class Account {
     private Contact contactList;
     private OpportunityList opportunityList;
 
+    private String country;
+
     public Account(Industry industry, String employees, String city, String contact, Contact contactList) {
         setId();
         this.industry = industry;
@@ -20,6 +22,27 @@ public class Account {
         this.city = city;
         this.contact = contact;
         this.contactList = contactList;
+    }
+
+    public Account(Industry industry, String employees, String city, String contact, Contact contactList, OpportunityList opportunityList, String country) {
+        this.industry = industry;
+        this.employees = employees;
+        this.city = city;
+        this.contact = contact;
+        this.contactList = contactList;
+        this.opportunityList = opportunityList;
+        this.country = country;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public Account() {
     }
 
     public String getId() {
@@ -76,14 +99,13 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" +
-                "industry=" + industry +
-                ", employees='" + employees + '\'' +
-                ", city='" + city + '\'' +
-                ", contact='" + contact + '\'' +
-                ", contactList=" + contactList +
-                ", opportunityList=" + opportunityList +
-                '}';
+        return "Account:" +'\n'+
+                "Industry:" + industry +'\n'+
+                "Employees='" + employees + '\n'+
+                "City='" + city + '\n'+
+                "Contact='" + contact + '\n'+
+                "ContactList=" + contactList + '\n'+
+                "OpportunityList=" + opportunityList;
     }
 
     public void setOpportunityList(OpportunityList opportunityList) {

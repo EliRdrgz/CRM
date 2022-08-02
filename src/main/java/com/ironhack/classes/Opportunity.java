@@ -2,22 +2,29 @@ package com.ironhack.classes;
 
 import com.ironhack.enums.OpportunityStatus;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Opportunity  {
     private String id;
     private static int counter = 0;
-    private Product productList[];
+    private ArrayList<Product> productList;
     private Contact decisionMaker;
     private OpportunityStatus status;
     private Account account;
 
-    public Opportunity(  Product[] productList, Contact decisionMaker, OpportunityStatus status, Account account) {
+    public Opportunity(ArrayList<Product> productList, Contact decisionMaker, OpportunityStatus status, Account account) {
         setId();
         this.productList = productList;
         this.decisionMaker = decisionMaker;
         this.status = status;
         this.account = account;
+    }
+
+    public Opportunity(ArrayList<Product> productList, Contact decisionMaker, OpportunityStatus status) {
+        this.productList = productList;
+        this.decisionMaker = decisionMaker;
+        this.status = status;
     }
 
     public String getId() {
@@ -28,11 +35,11 @@ public class Opportunity  {
         this.id = counter ++ + "";
     }
 
-    public Product[] getProductList() {
+    public ArrayList<Product> getProductList() {
         return productList;
     }
 
-    public void setProductList(Product[] productList) {
+    public void setProductList(ArrayList<Product> productList) {
         this.productList = productList;
     }
 
@@ -62,6 +69,6 @@ public class Opportunity  {
 
     @Override
     public String toString() {
-        return "Opportunity{" + "productList=" + (productList == null ? "null" : Arrays.asList(productList).toString()) + ", decisionMaker=" + decisionMaker + ", status=" + status + ", account=" + account + '}';
+        return "Opportunity: "+'\n' + "ProductList: " + (productList == null ? "null" : Arrays.asList(productList).toString()) +'\n'+ "DecisionMaker: " + decisionMaker + '\n'+"Status: " + status + '\n'+"Account: " + account;
     }
 }

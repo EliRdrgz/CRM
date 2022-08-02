@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7360b7c6-635c-4d96-b489-66b4ce401af9" name="Changes" comment="set email">
+    <list default="true" id="7360b7c6-635c-4d96-b489-66b4ce401af9" name="Changes" comment="set email(lead) and convertId(menu)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Lead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Lead.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Contact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Opportunity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Opportunity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1657970534149</updated>
       <workItem from="1657970535852" duration="4057000" />
+      <workItem from="1659450214770" duration="4259000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1657970968111</created>
@@ -107,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659208762011</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="set email(lead) and convertId(menu)">
+      <created>1659371263612</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1659371263612</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,6 +139,7 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="git ignore done" />
     <MESSAGE value="change classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="change classes" />
+    <MESSAGE value="set email(lead) and convertId(menu)" />
+    <option name="LAST_COMMIT_MESSAGE" value="set email(lead) and convertId(menu)" />
   </component>
 </project>

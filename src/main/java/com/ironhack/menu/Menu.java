@@ -1,6 +1,8 @@
 package com.ironhack.menu;
 
 import com.ironhack.classes.*;
+import com.ironhack.enums.Industry;
+import com.ironhack.enums.OpportunityStatus;
 import com.ironhack.enums.TypeOfProduct;
 import jdk.swing.interop.SwingInterOpUtils;
 
@@ -88,17 +90,62 @@ public class Menu {
         Contact contact = new Contact(leadConvert, leadList);
         System.out.println("Now the lead with id " + id + " is a new contact.");
         System.out.println(contact);
-        System.out.println("In which type of product are you interested?");
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("HYBRID");
-        System.out.println("FLATBED");
-        System.out.println("BOX");
+        ArrayList<Product> productList= new ArrayList<>();
+        boolean doneOrder = false;
+        while(!doneOrder) {
+            System.out.println("In which type of product are you interested?");
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("HYBRID");
+            System.out.println("FLATBED");
+            System.out.println("BOX");
+            System.out.println("DONE");
+            option = scanner.nextLine().toUpperCase();
+            if(option.equals("DONE")){
+                doneOrder = true;
+            }else {
+                TypeOfProduct type = TypeOfProduct.valueOf(option);
+                System.out.println("How many of those?");
+                int quantity = scanner.nextInt();
+                Product product = new Product(type, quantity);
+                productList.add(product);
+                System.out.println(productList);
+            }
+        }
+        Opportunity opportunity = new Opportunity( productList,contact, OpportunityStatus.OPEN);
+        System.out.println("The opportunity has been created successfully.");
+        System.out.println(opportunity);
+        System.out.println("What type of industry is the company?");
+        System.out.println("PRODUCE");
+        System.out.println("ECOMMERCE");
+        System.out.println("MANUFACTURING");
+        System.out.println("MEDICAL");
+        System.out.println("OTHER");
         option = scanner.nextLine().toUpperCase();
-        TypeOfProduct type = TypeOfProduct.valueOf(option);
-        System.out.println("How many of those?");
-        int quantity = scanner.nextInt();
-        Product product = new Product(type, quantity);
-        System.out.println(product);
+        Account account = new Account();
+        if(option.equals("PRODUCE")){
+            account.setIndustry(Industry.PRODUCE);
+        }else if(option.equals("ECOMMERCE")){
+            account.setIndustry(Industry.ECOMMERCE);
+        }else if(option.equals("MANUFACTURING")){
+            account.setIndustry(Industry.MANUFACTURING);
+        }else if(option.equals("MEDICAL")){
+            account.setIndustry(Industry.MEDICAL);
+        }else if(option.equals("OTHER")){
+            account.setIndustry(Industry.OTHER);
+        }else{
+            System.out.println("Choose a industry of the list. If the industry that you want does not appear in the list, choose OTHER.");
+        }
+        System.out.println("Number of employees of the company: ");
+        option = scanner.nextLine();
+        account.setEmployees(option);
+        System.out.println("Company's city:");
+        option = scanner.nextLine();
+        account.setCity(option);
+        System.out.println("Company's country:");
+        option = scanner.nextLine();
+        account.setCountry(option);
+        System.out.println(account);
+
     }
 
 
