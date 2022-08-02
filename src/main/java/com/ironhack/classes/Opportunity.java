@@ -13,6 +13,7 @@ public class Opportunity  {
     private OpportunityStatus status;
     private Account account;
 
+
     public Opportunity(ArrayList<Product> productList, Contact decisionMaker, OpportunityStatus status, Account account) {
         setId();
         this.productList = productList;

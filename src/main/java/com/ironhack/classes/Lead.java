@@ -11,12 +11,16 @@ public class Lead {
     private String companyName;
 
     public Lead(String name, String phoneNumber, String email, String companyName) {
+
         setId();
         setName(name);
         setPhoneNumber(phoneNumber);
         setEmail(email);
         setCompanyName(companyName);
+    }
 
+    public String getId() {
+        return id;
     }
 
     public String getName() {

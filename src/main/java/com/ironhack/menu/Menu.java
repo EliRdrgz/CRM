@@ -1,5 +1,6 @@
 package com.ironhack.menu;
 
+
 import com.ironhack.classes.*;
 import com.ironhack.enums.Industry;
 import com.ironhack.enums.OpportunityStatus;
@@ -8,6 +9,8 @@ import jdk.swing.interop.SwingInterOpUtils;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import com.ironhack.classes.Lead;
+
 import java.util.Scanner;
 
 public class Menu {
@@ -17,7 +20,9 @@ public class Menu {
 
     private String option;
 
+
     public void showMenu(LeadList leadList) {
+
         scanner = new Scanner(System.in);
         while (!exit) {
             System.out.println("Welcome to CRM. What would you like to do?");
@@ -34,13 +39,16 @@ public class Menu {
                 case "SHOW LEADS" -> showLeads(leadList);
                 case "LOOKUP LEAD ID" -> searchLead(leadList);
                 case "CONVERT ID" -> convertId(leadList);
+
                 case "EXIT" -> exit = true;
                 default -> System.out.println("Choose a correct option.");
             }
         }
     }
 
+
     private void newLeadInfo(LeadList leadList) {
+
         System.out.println("Enter lead details");
         System.out.println("------------------");
 
@@ -147,7 +155,4 @@ public class Menu {
         System.out.println(account);
 
     }
-
-
-
 }

@@ -1,5 +1,6 @@
 package com.ironhack;
 
+
 import com.github.javafaker.Faker;
 import com.ironhack.classes.Contact;
 import com.ironhack.classes.Lead;
@@ -9,6 +10,7 @@ import com.ironhack.menu.Menu;
 
 public class Main {
     public static void main(String[] args) {
+
         LeadList leadList = new LeadList();
         Faker faker = new Faker();
         //create TestLead
@@ -40,6 +42,8 @@ public class Main {
         Opportunity testOpportunity = new Opportunity(leadList.get(3), null, null, OpportunityStatus.OPEN, null);
         System.out.println("lead3-->"+leadList.get(3));
         */
+
+        new Menu().showMenu();
 
     }
 }
