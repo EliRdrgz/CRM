@@ -4,7 +4,7 @@ package com.ironhack.classes;
 public class Lead {
 
     private String id;
-    private static int counter = 0;
+    private static int counter = 1;
     private String name;
     private String phoneNumber;
     private String email;
