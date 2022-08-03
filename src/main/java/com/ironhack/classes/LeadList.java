@@ -9,19 +9,23 @@ public class LeadList {
     public void removeLead(Lead lead) {
         leads.remove(lead);
     }
+
     public void addLead(Lead lead) {
         leads.add(lead);
     }
+
     public Lead get(int index) {
         return leads.get(index);
     }
 
-    public ArrayList<Lead> showAllLeads(){
-      return this.leads;
+    public ArrayList<Lead> showAllLeads() {
+        return this.leads;
     }
+
     public int size() {
         return leads.size();
     }
+
     public Lead getLeadById(String id) {
         for (Lead lead : leads) {
             if (lead.getId().equals(id)) {
@@ -36,7 +40,7 @@ public class LeadList {
     public String toString() {
         String response = "";
         for (Lead lead : leads) {
-            response += "Id: "+ lead.getId() +" Name: "+ lead.getName();
+            response += "Id: " + lead.getId() + " Name: " + lead.getName();
         }
 
 

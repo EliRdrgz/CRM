@@ -51,17 +51,16 @@ public class Lead {
             if (email.charAt(i) == '@') {
                 at++;
             }
-            if(email.charAt(i)=='.'){
+            if (email.charAt(i) == '.') {
                 dot = true;
             }
-            if(email.charAt(i)==' '){
+            if (email.charAt(i) == ' ') {
                 space = true;
             }
         }
-        if(at==1 && dot  && !space){
+        if (at == 1 && dot && !space) {
             this.email = email;
-        }
-        else{
+        } else {
             System.out.println("Enter a valid email, please.");
         }
 
@@ -76,18 +75,13 @@ public class Lead {
     }
 
 
-
     public void setId() {
         this.id = counter++ + "";
     }
 
     @Override
     public String toString() {
-        return "--------------------------------------------\n" +
-                "LEAD ID: " + id + "\n" +
-                "NAME: " + name + "\n" +
-                "PHONE: " + phoneNumber + "\n" +
-                "EMAIL: " + email + "\n" +
-                "COMPANY: " + companyName;
+        return "--------------------------------------------\n" + "LEAD ID: " + id + "\n" + "NAME: " + name + "\n" +
+                "PHONE: " + phoneNumber + "\n" + "EMAIL: " + email + "\n" + "COMPANY: " + companyName;
     }
 }
