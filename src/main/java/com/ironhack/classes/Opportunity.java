@@ -14,19 +14,13 @@ public class Opportunity  {
     private Account account;
 
 
-    public Opportunity(ArrayList<Product> productList, Contact decisionMaker, OpportunityStatus status, Account account) {
+    public Opportunity(ArrayList<Product> productList, Contact decisionMaker, OpportunityStatus status) {
         setId();
         this.productList = productList;
         this.decisionMaker = decisionMaker;
         this.status = status;
-        this.account = account;
     }
 
-    public Opportunity(ArrayList<Product> productList, Contact decisionMaker, OpportunityStatus status) {
-        this.productList = productList;
-        this.decisionMaker = decisionMaker;
-        this.status = status;
-    }
 
     public String getId() {
         return id;
@@ -67,6 +61,8 @@ public class Opportunity  {
     public void setAccount(Account account) {
         this.account = account;
     }
+
+
 
     @Override
     public String toString() {

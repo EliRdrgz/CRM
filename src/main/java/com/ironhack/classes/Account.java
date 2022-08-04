@@ -2,35 +2,34 @@ package com.ironhack.classes;
 
 import com.ironhack.enums.Industry;
 
+import java.util.ArrayList;
+
 public class Account {
 
     private String id;
-    private static int counter = 0;
+
+    private String companyName;
+    private static int counter = 1000;
     private Industry industry;
     private String employees;
     private String city;
-    private String contact;
-    private Contact contactList;
-    private OpportunityList opportunityList;
-
     private String country;
+    private ArrayList<Contact> contactList = new ArrayList<Contact>();
 
-    public Account(Industry industry, String employees, String city, String contact, Contact contactList) {
+
+    public Account(Industry industry, String employees, String city, ArrayList<Contact> contactList) {
         setId();
         this.industry = industry;
         this.employees = employees;
         this.city = city;
-        this.contact = contact;
         this.contactList = contactList;
     }
 
-    public Account(Industry industry, String employees, String city, String contact, Contact contactList, OpportunityList opportunityList, String country) {
+    public Account(Industry industry, String employees, String city, ArrayList<Contact> contactList, String country) {
         this.industry = industry;
         this.employees = employees;
         this.city = city;
-        this.contact = contact;
         this.contactList = contactList;
-        this.opportunityList = opportunityList;
         this.country = country;
     }
 
@@ -42,7 +41,9 @@ public class Account {
         this.country = country;
     }
 
-    public Account() {
+
+    public Account(String companyName) {
+        this.companyName = companyName;
     }
 
     public String getId() {
@@ -50,7 +51,7 @@ public class Account {
     }
 
     public void setId() {
-        this.id = counter ++ + "";
+        this.id = counter++ + "";
     }
 
     public Industry getIndustry() {
@@ -77,39 +78,36 @@ public class Account {
         this.city = city;
     }
 
-    public String getContact() {
-        return contact;
-    }
 
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
-
-    public Contact getContactList() {
+    public ArrayList<Contact> getContactList() {
         return contactList;
     }
 
-    public void setContactList(Contact contactList) {
+    public void setContactList(ArrayList<Contact> contactList) {
         this.contactList = contactList;
     }
 
-    public OpportunityList getOpportunityList() {
-        return opportunityList;
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public void addContactToList(Contact contact) {
+
+        contactList.add(contact);
+
     }
 
     @Override
     public String toString() {
-        return "Account:" +'\n'+
-                "Industry:" + industry +'\n'+
-                "Employees='" + employees + '\n'+
-                "City='" + city + '\n'+
-                "Contact='" + contact + '\n'+
-                "ContactList=" + contactList + '\n'+
-                "OpportunityList=" + opportunityList;
+        return "Account:" + '\n' +
+                "Industry:" + industry + '\n' +
+                "Employees='" + employees + '\n' +
+                "City='" + city + '\n' +
+                "ContactList=" + contactList + '\n' ;
     }
 
-    public void setOpportunityList(OpportunityList opportunityList) {
-        this.opportunityList = opportunityList;
-    }
 }
-

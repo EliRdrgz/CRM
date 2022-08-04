@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7360b7c6-635c-4d96-b489-66b4ce401af9" name="Changes" comment="punto 12 y parte del 13">
+    <list default="true" id="7360b7c6-635c-4d96-b489-66b4ce401af9" name="Changes" comment="code review">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Lead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Lead.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Opportunity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Opportunity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/OpportunityList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/OpportunityList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/test.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +97,7 @@
       <workItem from="1657970535852" duration="4057000" />
       <workItem from="1659450214770" duration="6307000" />
       <workItem from="1659468692623" duration="952000" />
+      <workItem from="1659633779596" duration="9172000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1657970968111</created>
@@ -153,5 +158,16 @@
     <MESSAGE value="set email(lead) and convertId(menu)" />
     <MESSAGE value="punto 12 y parte del 13" />
     <option name="LAST_COMMIT_MESSAGE" value="punto 12 y parte del 13" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ironhack/classes/Account.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

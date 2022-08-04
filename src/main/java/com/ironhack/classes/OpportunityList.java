@@ -1,5 +1,6 @@
 package com.ironhack.classes;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class OpportunityList {
@@ -24,4 +25,16 @@ public class OpportunityList {
     public void removeOpportunity(Opportunity opportunity) {
         opportunities.remove(opportunity);
     }
+
+    public ArrayList<Opportunity> searchByCompanyName(String name){
+        ArrayList<Opportunity> opporunitiesCompany = new ArrayList<>();
+        for(Opportunity opportunity : opportunities){
+            if(opportunity.getAccount().getCompanyName().equalsIgnoreCase(name)){
+                opporunitiesCompany.add(opportunity);
+            }
+        }
+        System.out.println(opporunitiesCompany.size());
+        return opporunitiesCompany;
+    }
+
 }

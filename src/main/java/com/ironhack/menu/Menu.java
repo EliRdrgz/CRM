@@ -6,15 +6,15 @@ import com.ironhack.demo.DemoData;
 import com.ironhack.enums.Industry;
 import com.ironhack.enums.OpportunityStatus;
 import com.ironhack.enums.TypeOfProduct;
-import jdk.swing.interop.SwingInterOpUtils;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 import com.ironhack.classes.Lead;
 
 import java.util.Map;
 import java.util.Scanner;
+
+import static com.ironhack.enums.OpportunityStatus.OPEN;
 
 public class Menu {
 
@@ -23,6 +23,8 @@ public class Menu {
 
     private String option;
     LeadList leadList = new LeadList();
+
+    OpportunityList opportunityList = new OpportunityList();
 
 
     public void start() {
@@ -38,6 +40,8 @@ public class Menu {
                 case "LOOKUP LEAD ID" -> searchLead(leadList);
                 case "CONVERT ID" -> convertId(leadList);
                 case "LOAD DEMO DATA" -> loadDemoData();
+                case "SEARCH OPPORTUNITY BY COMPANY NAME" -> System.out.println("===");
+//                case "EDIT OPPORTUNITY" -> editOpportunity();
                 case "EXIT" -> exit = true;
                 default -> System.out.println("Choose a correct option.");
             }
@@ -52,6 +56,8 @@ public class Menu {
         System.out.println("Lookup Lead id");
         System.out.println("Convert id");
         System.out.println("Load demo data");
+        System.out.println("Search opportunity by company name");
+        System.out.println("Edit opportunity");
         System.out.println("Exit");
     }
 
@@ -137,7 +143,7 @@ public class Menu {
                     System.out.println(productList);
                 }
             }
-            Opportunity opportunity = new Opportunity(productList, contact, OpportunityStatus.OPEN);
+            Opportunity opportunity = new Opportunity(productList,contact,OPEN);
             System.out.println("The opportunity has been created successfully.");
             System.out.println(opportunity);
             System.out.println("What type of industry is the company?");
@@ -147,7 +153,7 @@ public class Menu {
             System.out.println("MEDICAL");
             System.out.println("OTHER");
             option = scanner.nextLine().toUpperCase();
-            Account account = new Account();
+            Account account = new Account(contact.getCompanyName());
             if (option.equals("PRODUCE")) {
                 account.setIndustry(Industry.PRODUCE);
             } else if (option.equals("ECOMMERCE")) {
@@ -170,12 +176,22 @@ public class Menu {
             System.out.println("Company's country:");
             option = scanner.nextLine();
             account.setCountry(option);
-            System.out.println(account);
+            account.addContactToList(contact);
+            opportunity.setAccount(account);
+            opportunityList.addOpportunity(opportunity);
+            System.out.println("Opportunity saved successfully.");
         }
         else{
             System.out.println("No existing leads to convert");
         }
 
+
+    }
+
+    private void searchOpportunityByCompanyName(){
+        System.out.println("Please enter company name to search opportunities: ");
+        String name = scanner.nextLine();
+        System.out.println(opportunityList.searchByCompanyName(name));
     }
 
     private void loadDemoData() {
@@ -190,4 +206,10 @@ public class Menu {
             System.out.println("Failed to load data");
         }
     }
+
+//    private void editOpportunity(){
+//        System.out.println("");
+//        opportunity.setStatus();
+//    }
+
 }
