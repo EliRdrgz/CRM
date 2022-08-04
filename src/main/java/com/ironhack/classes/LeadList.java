@@ -1,6 +1,8 @@
 package com.ironhack.classes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LeadList {
 
@@ -18,8 +20,12 @@ public class LeadList {
         return leads.get(index);
     }
 
-    public ArrayList<Lead> showAllLeads() {
-        return this.leads;
+    public Map<Integer, String> showAllLeads() {
+        Map<Integer, String> leadsToShow = new HashMap<>();
+        for (Lead lead : leads) {
+            leadsToShow.put(Integer.valueOf(lead.getId()), lead.getName());
+        }
+        return leadsToShow;
     }
 
     public int size() {
@@ -42,7 +48,6 @@ public class LeadList {
         for (Lead lead : leads) {
             response += "Id: " + lead.getId() + " Name: " + lead.getName();
         }
-
 
         return response;
     }
