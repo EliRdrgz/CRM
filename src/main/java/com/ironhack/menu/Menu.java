@@ -103,8 +103,7 @@ public class Menu {
                     doneOrder = true;
                 } else {
                     TypeOfProduct type = TypeOfProduct.valueOf(option);
-                    System.out.println("How many of those?");
-                    int quantity = scanner.nextInt();
+                    int quantity = consoleBuilder.numberConsoleInput("How many of those?", 1,999);
                     Product product = new Product(type, quantity);
                     productList.add(product);
                     System.out.println(productList);
@@ -112,26 +111,14 @@ public class Menu {
             }
             Opportunity opportunity = new Opportunity(productList, contact);
             opportunityList.addOpportunity(opportunity);
-            System.out.println("-----------------------------------------");
-            System.out.println("The opportunity has been created successfully.");
-            System.out.println("-----------------------------------------");
-            System.out.println("What type of industry is the company?");
-            System.out.println("PRODUCE");
-            System.out.println("ECOMMERCE");
-            System.out.println("MANUFACTURING");
-            System.out.println("MEDICAL");
-            System.out.println("OTHER");
-            option = scanner.next().toUpperCase();
+
+            List<String> options = Arrays.asList("PRODUCE","ECOMMERCE","MANUFACTURING","MEDICAL","OTHER");
+            option = consoleBuilder.listConsoleInput("The opportunity has been created successfully.", options);
             Industry industry = Industry.valueOf(option);
 
-            System.out.println("Number of employees of the company: ");
-            int numberSelected = scanner.nextInt();
-
-            System.out.println("Company city: ");
-            String citySelected = scanner.next();
-
-            System.out.println("Company country: ");
-            String countrySelected = scanner.next();
+            int numberSelected = consoleBuilder.numberConsoleInput("Number of employees of the company:");
+            String citySelected = consoleBuilder.textConsoleInput("Company city: ");
+            String countrySelected = consoleBuilder.textConsoleInput("Company country: ");
 
             Account account = new Account(industry, numberSelected, citySelected, countrySelected);
             account.addContactToList(contact);
@@ -155,15 +142,14 @@ public class Menu {
         System.out.println(opportunityList.showAllOpportunities());
         System.out.println("---------------------");
         System.out.print("Select opportunity id: ");
-        int id = scanner.nextInt();
+        int id = consoleBuilder.numberConsoleInput("Select opportunity id: ",opportunityList.getAllOpportunitiesId());
         Opportunity chosenOpportunity = opportunityList.getOpportunityById(id);
         System.out.println(chosenOpportunity);
         System.out.println("What should be the new status?");
         System.out.println("---------------------");
-        System.out.println("close-lost id");
-        System.out.println("close-won id");
-        String newStatus = scanner.next();
-        if (newStatus.contains("lost")) {
+        List<String> options = Arrays.asList(CLOSED_LOST.toString(), CLOSED_WON.toString());
+        String newStatus = consoleBuilder.listConsoleInput("What should be the new status?",options);
+        if (newStatus.equals(CLOSED_LOST.toString())) {
             chosenOpportunity.setStatus(CLOSED_LOST);
         } else{
             chosenOpportunity.setStatus(CLOSED_WON);

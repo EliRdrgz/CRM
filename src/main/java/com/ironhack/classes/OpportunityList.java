@@ -38,4 +38,12 @@ public class OpportunityList {
     public void removeOpportunity(Opportunity opportunity) {
         opportunities.remove(opportunity);
     }
+
+    public int[] getAllOpportunitiesId(){
+        int[] ids = new int[opportunities.size()];
+        for (int i = 0; i < opportunities.size(); i++) {
+            ids[i] = opportunities.get(i).getId();
+        }
+        return ids;
+    }
 }
