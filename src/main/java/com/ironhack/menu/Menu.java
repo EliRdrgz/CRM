@@ -3,6 +3,7 @@ package com.ironhack.menu;
 
 import com.ironhack.classes.*;
 import com.ironhack.demo.DemoData;
+import com.ironhack.demo.LoadDemoData;
 import com.ironhack.enums.Industry;
 import com.ironhack.enums.TypeOfProduct;
 
@@ -26,7 +27,7 @@ public class Menu {
     OpportunityList opportunityList = new OpportunityList();
 
 
-    public void start() {
+    public void start() throws InterruptedException {
 
         scanner = new Scanner(System.in);
         while (!exit) {
@@ -38,9 +39,8 @@ public class Menu {
                 case "SHOW LEADS" -> showLeads(leadList);
                 case "LOOKUP LEAD ID" -> searchLead(leadList);
                 case "CONVERT ID" -> convertId(leadList);
-//                case "SEARCH OPPORTUNITY BY COMPANY NAME" -> System.out.println("===");
                 case "EDIT OPPORTUNITY" -> editOpportunity(opportunityList);
-                case "LOAD DEMO DATA" -> loadDemoData();
+                case "LOAD DEMO DATA" -> LoadDemoData.loadAllDemo();
                 case "EXIT" -> exit = true;
                 default -> System.out.println("Choose a correct option.");
             }
@@ -55,7 +55,6 @@ public class Menu {
         System.out.println("Show leads");
         System.out.println("Lookup Lead id");
         System.out.println("Convert id");
-//        System.out.println("Search opportunity by company name");
         System.out.println("Load demo data");
         System.out.println("Edit opportunity");
         System.out.println("Exit");
@@ -140,7 +139,6 @@ public class Menu {
                     int quantity = scanner.nextInt();
                     Product product = new Product(type, quantity);
                     productList.add(product);
-                    System.out.println(productList);
                 }
             }
             Opportunity opportunity = new Opportunity(productList, contact);
@@ -179,12 +177,6 @@ public class Menu {
         }
     }
 
-//    private void searchOpportunityByCompanyName(){
-//        System.out.println("Please enter company name to search opportunities: ");
-//        String name = scanner.nextLine();
-////        System.out.println(opportunityList.searchByCompanyName(name));
-//    }
-
     private void editOpportunity(OpportunityList opportunityList) {
         System.out.println(opportunityList.showAllOpportunities());
         System.out.println("---------------------");
@@ -209,18 +201,4 @@ public class Menu {
         }
         System.out.println("New status: " + chosenOpportunity.getStatus());
     }
-
-    private void loadDemoData() {
-        System.out.print("How many leads? ");
-        int leadsToCreate = scanner.nextInt();
-        DemoData demo = new DemoData();
-        leadList = demo.createDemoLeads(leadsToCreate);
-        if(leadList.size() > 0){
-            System.out.println("Data loaded correctly");
-        }
-        else{
-            System.out.println("Failed to load data");
-        }
-    }
-
 }

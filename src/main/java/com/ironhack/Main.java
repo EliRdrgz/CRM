@@ -9,7 +9,7 @@ import com.ironhack.classes.OpportunityList;
 import com.ironhack.menu.Menu;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         new Menu().start();
     }
 }
