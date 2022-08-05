@@ -13,11 +13,22 @@ public class Opportunity {
     private Contact decisionMaker;
     private OpportunityStatus status;
 
+    private Account account;
+
+
     public Opportunity(ArrayList<Product> productList, Contact decisionMaker) {
         setId();
         this.productList = productList;
         this.decisionMaker = decisionMaker;
         this.status = OPEN;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     public int getId() {
@@ -38,7 +49,9 @@ public class Opportunity {
 
     @Override
     public String toString() {
-        return "Opportunity{" + "id=" + id + ", productList=" + productList + ", decisionMaker=" + decisionMaker + "," +
-                " status=" + status + '}';
+        return "Opportunity{" + "id=" + id + ", productList=" + productList + ", decisionMaker=" + decisionMaker.toString() + "," +
+                " status=" + status + "account"+ account.toString() + '}';
     }
+
+
 }

@@ -4,14 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7360b7c6-635c-4d96-b489-66b4ce401af9" name="Changes" comment="code review">
+    <list default="true" id="7360b7c6-635c-4d96-b489-66b4ce401af9" name="Changes" comment="change classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Lead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Lead.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Opportunity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Opportunity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/OpportunityList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/OpportunityList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/console/ConsoleBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/console/ConsoleBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/test.java" beforeDir="false" />
     </list>
+    <list id="3833818d-96e1-4448-b8fb-badc2f6dd8f9" name="Changes by Ana_Lau" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java" afterDir="false" />
+    </list>
+    <list id="0390a0bb-82c7-4aae-8d23-1d57b0166451" name="Changes by eli" comment="Changes by eli" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="eli" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,11 +46,37 @@
       </RepoCoordinatesHolder>
     </option>
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java">
+      <ranges>
+        <range start1="33" end1="34" start2="33" end2="34" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="39" end1="40" start2="39" end2="40" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="53" end1="57" start2="53" end2="57" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="80" end1="81" start2="80" end2="81" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="90" end1="96" start2="90" end2="93" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="98" end1="98" start2="95" end2="96" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="99" end1="100" start2="97" end2="102" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="105" end1="106" start2="107" end2="108" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="112" end1="113" start2="114" end2="115" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="114" end1="115" start2="116" end2="117" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="116" end1="123" start2="118" end2="122" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="124" end1="129" start2="123" end2="126" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="134" end1="139" start2="131" end2="136" changelist="3833818d-96e1-4448-b8fb-badc2f6dd8f9" />
+        <range start1="144" end1="145" start2="141" end2="142" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="150" end1="151" start2="147" end2="148" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="153" end1="154" start2="150" end2="151" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2C1WNqRdTgD97fJqYMUTkTdWCNl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -62,6 +93,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.ironhack.DataStorage" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.ironhack" />
     </key>
@@ -134,7 +168,21 @@
       <option name="project" value="LOCAL" />
       <updated>1659454752537</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="change classes">
+      <created>1659738216354</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1659738216354</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Changes by eli">
+      <created>1659738220725</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1659738220725</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,18 +202,19 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="git ignore done" />
-    <MESSAGE value="change classes" />
     <MESSAGE value="set email(lead) and convertId(menu)" />
     <MESSAGE value="punto 12 y parte del 13" />
-    <option name="LAST_COMMIT_MESSAGE" value="punto 12 y parte del 13" />
+    <MESSAGE value="change classes" />
+    <MESSAGE value="Changes by eli" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by eli" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ironhack/classes/Account.java</url>
-          <line>86</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/ironhack/classes/Opportunity.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
