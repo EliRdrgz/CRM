@@ -2,16 +2,14 @@ package com.ironhack.classes;
 
 
 public class Lead {
-
-    private String id;
     private static int counter = 1;
+    private int id;
     private String name;
     private String phoneNumber;
     private String email;
     private String companyName;
 
     public Lead(String name, String phoneNumber, String email, String companyName) {
-
         setId();
         setName(name);
         setPhoneNumber(phoneNumber);
@@ -19,8 +17,12 @@ public class Lead {
         setCompanyName(companyName);
     }
 
-    public String getId() {
+    public int getId() {
         return id;
+    }
+
+    public void setId() {
+        this.id = counter++;
     }
 
     public String getName() {
@@ -63,25 +65,19 @@ public class Lead {
         } else {
             System.out.println("Enter a valid email, please.");
         }
-
-    }
-
-    public String getCompanyName() {
-        return companyName;
     }
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
 
-
-    public void setId() {
-        this.id = counter++ + "";
-    }
-
     @Override
     public String toString() {
-        return "--------------------------------------------\n" + "LEAD ID: " + id + "\n" + "NAME: " + name + "\n" +
-                "PHONE: " + phoneNumber + "\n" + "EMAIL: " + email + "\n" + "COMPANY: " + companyName;
+        return "--------------------------------------------\n" +
+                "LEAD ID: " + id + "\n" +
+                "NAME: " + name + "\n" +
+                "PHONE: " + phoneNumber + "\n" +
+                "EMAIL: " + email + "\n" +
+                "COMPANY: " + companyName;
     }
 }

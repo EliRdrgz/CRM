@@ -11,10 +11,13 @@ import java.util.ArrayList;
 
 import com.ironhack.classes.Lead;
 
+import javax.print.attribute.standard.PrinterURI;
 import java.util.Map;
 import java.util.Scanner;
 
-import static com.ironhack.enums.OpportunityStatus.OPEN;
+import static com.ironhack.enums.Industry.*;
+import static com.ironhack.enums.OpportunityStatus.*;
+import static com.ironhack.enums.TypeOfProduct.*;
 
 public class Menu {
 
@@ -39,9 +42,9 @@ public class Menu {
                 case "SHOW LEADS" -> showLeads(leadList);
                 case "LOOKUP LEAD ID" -> searchLead(leadList);
                 case "CONVERT ID" -> convertId(leadList);
+//                case "SEARCH OPPORTUNITY BY COMPANY NAME" -> System.out.println("===");
+                case "EDIT OPPORTUNITY" -> editOpportunity(opportunityList);
                 case "LOAD DEMO DATA" -> loadDemoData();
-                case "SEARCH OPPORTUNITY BY COMPANY NAME" -> System.out.println("===");
-//                case "EDIT OPPORTUNITY" -> editOpportunity();
                 case "EXIT" -> exit = true;
                 default -> System.out.println("Choose a correct option.");
             }
@@ -49,14 +52,15 @@ public class Menu {
     }
 
     private void showMenu() {
+        System.out.println("------------------------------------------");
         System.out.println("Welcome to CRM. What would you like to do?");
         System.out.println("------------------------------------------");
         System.out.println("New lead");
         System.out.println("Show leads");
         System.out.println("Lookup Lead id");
         System.out.println("Convert id");
+//        System.out.println("Search opportunity by company name");
         System.out.println("Load demo data");
-        System.out.println("Search opportunity by company name");
         System.out.println("Edit opportunity");
         System.out.println("Exit");
     }
@@ -113,15 +117,15 @@ public class Menu {
     }
 
     private void convertId(LeadList leadList) {
-        if(leadList.size() > 0) {
+        if (leadList.size() > 0) {
             System.out.println("Enter lead id to convert to opportunity: ");
-            System.out.println("-------------");
-            String id = scanner.nextLine();
-            //System.out.println(leadList.getLeadById(id));
+            System.out.println("--------------------");
+            int id = scanner.nextInt();
             Lead leadConvert = leadList.getLeadById(id);
             Contact contact = new Contact(leadConvert, leadList);
+            System.out.println("-----------------------------------------");
             System.out.println("Now the lead with id " + id + " is a new contact.");
-            System.out.println(contact);
+            System.out.println("-----------------------------------------");
             ArrayList<Product> productList = new ArrayList<>();
             boolean doneOrder = false;
             while (!doneOrder) {
@@ -143,55 +147,71 @@ public class Menu {
                     System.out.println(productList);
                 }
             }
-            Opportunity opportunity = new Opportunity(productList,contact,OPEN);
+            Opportunity opportunity = new Opportunity(productList, contact);
+            opportunityList.addOpportunity(opportunity);
+            System.out.println("-----------------------------------------");
             System.out.println("The opportunity has been created successfully.");
-            System.out.println(opportunity);
+            System.out.println("-----------------------------------------");
             System.out.println("What type of industry is the company?");
             System.out.println("PRODUCE");
             System.out.println("ECOMMERCE");
             System.out.println("MANUFACTURING");
             System.out.println("MEDICAL");
             System.out.println("OTHER");
-            option = scanner.nextLine().toUpperCase();
-            Account account = new Account(contact.getCompanyName());
-            if (option.equals("PRODUCE")) {
-                account.setIndustry(Industry.PRODUCE);
-            } else if (option.equals("ECOMMERCE")) {
-                account.setIndustry(Industry.ECOMMERCE);
-            } else if (option.equals("MANUFACTURING")) {
-                account.setIndustry(Industry.MANUFACTURING);
-            } else if (option.equals("MEDICAL")) {
-                account.setIndustry(Industry.MEDICAL);
-            } else if (option.equals("OTHER")) {
-                account.setIndustry(Industry.OTHER);
-            } else {
-                System.out.println("Choose a industry of the list. If the industry that you want does not appear in the " + "list, choose OTHER.");
-            }
+            option = scanner.next().toUpperCase();
+            Industry industry = Industry.valueOf(option);
+
             System.out.println("Number of employees of the company: ");
-            option = scanner.nextLine();
-            account.setEmployees(option);
-            System.out.println("Company's city:");
-            option = scanner.nextLine();
-            account.setCity(option);
-            System.out.println("Company's country:");
-            option = scanner.nextLine();
-            account.setCountry(option);
+            int numberSelected = scanner.nextInt();
+
+            System.out.println("Company city: ");
+            String citySelected = scanner.next();
+
+            System.out.println("Company country: ");
+            String countrySelected = scanner.next();
+
+            Account account = new Account(industry,numberSelected,citySelected,countrySelected);
             account.addContactToList(contact);
-            opportunity.setAccount(account);
-            opportunityList.addOpportunity(opportunity);
-            System.out.println("Opportunity saved successfully.");
+            account.addOpportunityToList(opportunity);
+            System.out.println("Account saved successfully.");
+            System.out.println("-----------------------------------------");
+            System.out.println(account);
+            System.out.println("-----------------------------------------");
         }
         else{
             System.out.println("No existing leads to convert");
         }
-
-
     }
 
-    private void searchOpportunityByCompanyName(){
-        System.out.println("Please enter company name to search opportunities: ");
-        String name = scanner.nextLine();
-        System.out.println(opportunityList.searchByCompanyName(name));
+//    private void searchOpportunityByCompanyName(){
+//        System.out.println("Please enter company name to search opportunities: ");
+//        String name = scanner.nextLine();
+////        System.out.println(opportunityList.searchByCompanyName(name));
+//    }
+
+    private void editOpportunity(OpportunityList opportunityList) {
+        System.out.println(opportunityList.showAllOpportunities());
+        System.out.println("---------------------");
+        System.out.print("Select opportunity id: ");
+        int id = scanner.nextInt();
+        Opportunity chosenOpportunity = opportunityList.getOpportunityById(id);
+        System.out.println(chosenOpportunity);
+        System.out.println("What should be the new status?");
+        System.out.println("---------------------");
+        System.out.println("close-lost id");
+        System.out.println("close-won id");
+        String newStatus = scanner.next();
+        if (newStatus.contains("lost")) {
+            chosenOpportunity.setStatus(CLOSED_LOST);
+            opportunityList.removeOpportunity(chosenOpportunity);
+
+        } else if (newStatus.contains("won")) {
+            chosenOpportunity.setStatus(CLOSED_WON);
+            opportunityList.removeOpportunity(chosenOpportunity);
+        } else {
+            System.out.println("Incorrect option");
+        }
+        System.out.println("New status: " + chosenOpportunity.getStatus());
     }
 
     private void loadDemoData() {
@@ -206,10 +226,5 @@ public class Menu {
             System.out.println("Failed to load data");
         }
     }
-
-//    private void editOpportunity(){
-//        System.out.println("");
-//        opportunity.setStatus();
-//    }
 
 }

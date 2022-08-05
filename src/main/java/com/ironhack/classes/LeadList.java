@@ -23,7 +23,7 @@ public class LeadList {
     public Map<Integer, String> showAllLeads() {
         Map<Integer, String> leadsToShow = new HashMap<>();
         for (Lead lead : leads) {
-            leadsToShow.put(Integer.valueOf(lead.getId()), lead.getName());
+            leadsToShow.put(lead.getId(), lead.getName());
         }
         return leadsToShow;
     }
@@ -32,9 +32,9 @@ public class LeadList {
         return leads.size();
     }
 
-    public Lead getLeadById(String id) {
+    public Lead getLeadById(int id) {
         for (Lead lead : leads) {
-            if (lead.getId().equals(id)) {
+            if (lead.getId() == id) {
                 return lead;
             }
         }
