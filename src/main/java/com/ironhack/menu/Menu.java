@@ -4,20 +4,16 @@ package com.ironhack.menu;
 import com.ironhack.classes.*;
 import com.ironhack.demo.DemoData;
 import com.ironhack.enums.Industry;
-import com.ironhack.enums.OpportunityStatus;
 import com.ironhack.enums.TypeOfProduct;
 
 import java.util.ArrayList;
 
 import com.ironhack.classes.Lead;
 
-import javax.print.attribute.standard.PrinterURI;
 import java.util.Map;
 import java.util.Scanner;
 
-import static com.ironhack.enums.Industry.*;
 import static com.ironhack.enums.OpportunityStatus.*;
-import static com.ironhack.enums.TypeOfProduct.*;
 
 public class Menu {
 

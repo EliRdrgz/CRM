@@ -1,6 +1,5 @@
 package com.ironhack.classes;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class OpportunityList {
