@@ -41,7 +41,7 @@ class DemoDataTest {
     void test_createDemoOpportunities_ok() {
         ArrayList<Contact> contactList = demoData.createDemoContacts(leadList);
         ArrayList<Product> productList = demoData.createDemoProductList();
-        OpportunityList opportunitiesList = demoData.createDemoOpportunities(productList,contactList);
+        OpportunityList opportunitiesList = demoData.createDemoOpportunities(contactList);
         assertEquals(34, opportunitiesList.opportunities.size());
     }
 //

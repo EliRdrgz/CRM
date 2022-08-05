@@ -22,9 +22,9 @@ public class Menu {
     boolean exit = false;
 
     private String option;
-    LeadList leadList = new LeadList();
+    public LeadList leadList = new LeadList();
 
-    OpportunityList opportunityList = new OpportunityList();
+    public OpportunityList opportunityList = new OpportunityList();
 
 
     public void start() throws InterruptedException {
@@ -40,7 +40,7 @@ public class Menu {
                 case "LOOKUP LEAD ID" -> searchLead(leadList);
                 case "CONVERT ID" -> convertId(leadList);
                 case "EDIT OPPORTUNITY" -> editOpportunity(opportunityList);
-                case "LOAD DEMO DATA" -> LoadDemoData.loadAllDemo();
+                case "LOAD DEMO DATA" -> loadDemoData();
                 case "EXIT" -> exit = true;
                 default -> System.out.println("Choose a correct option.");
             }
@@ -55,6 +55,7 @@ public class Menu {
         System.out.println("Show leads");
         System.out.println("Lookup Lead id");
         System.out.println("Convert id");
+//        System.out.println("Search opportunity by company name");
         System.out.println("Load demo data");
         System.out.println("Edit opportunity");
         System.out.println("Exit");
@@ -96,7 +97,6 @@ public class Menu {
         else{
             System.out.println("No existing leads to show");
         }
-        System.out.println("-----------------------------");
     }
 
     private void searchLead(LeadList leadList) {
@@ -139,6 +139,7 @@ public class Menu {
                     int quantity = scanner.nextInt();
                     Product product = new Product(type, quantity);
                     productList.add(product);
+                    System.out.println(productList);
                 }
             }
             Opportunity opportunity = new Opportunity(productList, contact);
@@ -179,11 +180,9 @@ public class Menu {
 
     private void editOpportunity(OpportunityList opportunityList) {
         System.out.println(opportunityList.showAllOpportunities());
-        System.out.println("---------------------");
         System.out.print("Select opportunity id: ");
         int id = scanner.nextInt();
         Opportunity chosenOpportunity = opportunityList.getOpportunityById(id);
-        System.out.println(chosenOpportunity);
         System.out.println("What should be the new status?");
         System.out.println("---------------------");
         System.out.println("close-lost id");
@@ -200,5 +199,11 @@ public class Menu {
             System.out.println("Incorrect option");
         }
         System.out.println("New status: " + chosenOpportunity.getStatus());
+    }
+
+    private void loadDemoData() throws InterruptedException {
+        LoadDemoData.loadAllDemo();
+        leadList = LoadDemoData.demoLeads;
+        opportunityList = LoadDemoData.opportunitiesList;
     }
 }
