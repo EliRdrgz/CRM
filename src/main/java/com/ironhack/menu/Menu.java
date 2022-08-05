@@ -129,11 +129,11 @@ public class Menu {
         }
     }
 
-//    private void searchOpportunityByCompanyName(){
-//        System.out.println("Please enter company name to search opportunities: ");
-//        String name = scanner.nextLine();
-////        System.out.println(opportunityList.searchByCompanyName(name));
-//    }
+    private void searchOpportunityByCompanyName() {
+        System.out.println("Please enter company name to search opportunities: ");
+        String name = scanner.nextLine();
+        System.out.println(opportunityList.searchByCompanyName(name));
+    }
 
     private void editOpportunity(OpportunityList opportunityList) {
         System.out.println(opportunityList.showAllOpportunities());
