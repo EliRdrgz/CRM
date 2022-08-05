@@ -1,5 +1,7 @@
 package com.ironhack.classes;
 
+import com.ironhack.enums.OpportunityStatus;
+
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 
@@ -12,7 +14,17 @@ public class OpportunityList {
     public String showAllOpportunities(){
         String response = "";
         for (Opportunity opportunity : opportunities) {
+
             response += opportunity.toString();
+        }
+        return response;
+    }
+    public String showOpenOpportunities(){
+        String response = "";
+        for (Opportunity opportunity : opportunities) {
+            if (opportunity.getStatus() == OpportunityStatus.OPEN) {
+                response += opportunity.toString();
+            }
         }
         return response;
     }

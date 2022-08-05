@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7360b7c6-635c-4d96-b489-66b4ce401af9" name="Changes" comment="code review">
+    <list default="true" id="7360b7c6-635c-4d96-b489-66b4ce401af9" name="Changes" comment="change classes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/DataStorage/MemoryData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/console/ConsoleBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Opportunity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/Opportunity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/LeadList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/LeadList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java" afterDir="false" />
+    </list>
+    <list id="3833818d-96e1-4448-b8fb-badc2f6dd8f9" name="Changes by Ana_Lau" comment="" />
+    <list id="0390a0bb-82c7-4aae-8d23-1d57b0166451" name="Changes by eli" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/OpportunityList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/classes/OpportunityList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/test.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,11 +46,45 @@
       </RepoCoordinatesHolder>
     </option>
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/com/ironhack/menu/Menu.java">
+      <ranges>
+        <range start1="4" end1="4" start2="4" end2="5" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="9" end1="10" start2="10" end2="11" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="13" end1="18" start2="14" end2="14" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="19" end1="20" start2="15" end2="15" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="22" end1="23" start2="17" end2="17" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="25" end1="25" start2="19" end2="20" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="35" end1="35" start2="30" end2="31" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="36" end1="39" start2="32" end2="34" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="53" end1="67" start2="48" end2="48" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="72" end1="83" start2="53" end2="57" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="88" end1="90" start2="62" end2="63" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="95" end1="96" start2="68" end2="69" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="99" end1="101" start2="72" end2="73" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="107" end1="114" start2="79" end2="83" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="120" end1="123" start2="89" end2="91" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="131" end1="138" start2="99" end2="101" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="142" end1="144" start2="105" end2="106" changelist="0390a0bb-82c7-4aae-8d23-1d57b0166451" />
+        <range start1="151" end1="161" start2="113" end2="116" changelist="0390a0bb-82c7-4aae-8d23-1d57b0166451" />
+        <range start1="163" end1="171" start2="118" end2="121" changelist="0390a0bb-82c7-4aae-8d23-1d57b0166451" />
+        <range start1="172" end1="173" start2="122" end2="123" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="179" end1="181" start2="129" end2="130" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="195" end1="196" start2="144" end2="145" changelist="0390a0bb-82c7-4aae-8d23-1d57b0166451" />
+        <range start1="200" end1="204" start2="149" end2="152" changelist="0390a0bb-82c7-4aae-8d23-1d57b0166451" />
+        <range start1="205" end1="208" start2="153" end2="154" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="209" end1="212" start2="155" end2="155" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="221" end1="222" start2="164" end2="165" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+        <range start1="223" end1="225" start2="166" end2="167" changelist="7360b7c6-635c-4d96-b489-66b4ce401af9" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2C1WNqRdTgD97fJqYMUTkTdWCNl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -62,6 +101,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.ironhack.DataStorage" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.ironhack" />
     </key>
@@ -158,16 +200,5 @@
     <MESSAGE value="set email(lead) and convertId(menu)" />
     <MESSAGE value="punto 12 y parte del 13" />
     <option name="LAST_COMMIT_MESSAGE" value="punto 12 y parte del 13" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ironhack/classes/Account.java</url>
-          <line>86</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
