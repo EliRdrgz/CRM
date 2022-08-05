@@ -28,6 +28,14 @@ public class LeadList {
         return leadsToShow;
     }
 
+    public int[] getAllIds() {
+        int[] ids = new int[leads.size()];
+        for (int i = 0; i < leads.size(); i++) {
+            ids[i] = leads.get(i).getId();
+        }
+        return ids;
+    }
+
     public int size() {
         return leads.size();
     }
