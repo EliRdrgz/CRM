@@ -46,4 +46,15 @@ public class OpportunityList {
         }
         return ids;
     }
+
+    public ArrayList<Opportunity> searchByCompanyName(String name){
+        ArrayList<Opportunity> opporunitiesCompany = new ArrayList<>();
+        for(Opportunity opportunity : opportunities){
+            if(opportunity.getAccount().getCompanyName().equalsIgnoreCase(name)){
+                opporunitiesCompany.add(opportunity);
+            }
+        }
+        System.out.println(opporunitiesCompany.size());
+        return opporunitiesCompany;
+    }
 }

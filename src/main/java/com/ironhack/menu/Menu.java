@@ -31,13 +31,13 @@ public class Menu {
 
         while (!exit) {
             List<String> options = Arrays.asList("New lead", "Show leads", "Lookup Lead id", "Convert id", "Search opportunity by company name", "Load demo data", "Edit opportunity", "Exit");
-            option = consoleBuilder.listConsoleInput( "Welcome to CRM. What would you like to do?", options);
+            option = consoleBuilder.listConsoleInput("Welcome to CRM. What would you like to do?", options);
             switch (option) {
                 case "NEW LEAD" -> newLeadInfo(leadList);
                 case "SHOW LEADS" -> showLeads(leadList);
                 case "LOOKUP LEAD ID" -> searchLead(leadList);
                 case "CONVERT ID" -> convertId(leadList);
-//                case "SEARCH OPPORTUNITY BY COMPANY NAME" -> System.out.println("===");
+                case "SEARCH OPPORTUNITY BY COMPANY NAME" -> searchOpportunityByCompanyName();
                 case "EDIT OPPORTUNITY" -> editOpportunity(opportunityList);
                 case "LOAD DEMO DATA" -> loadDemoData();
                 case "EXIT" -> exit = true;
@@ -51,10 +51,10 @@ public class Menu {
         System.out.println("Enter lead details");
         System.out.println("------------------");
 
-        String name = consoleBuilder.textConsoleInput( "Name:");
-        String phoneNumber = consoleBuilder.textConsoleInput( "Phone number:");
-        String email = consoleBuilder.textConsoleInput( "Email:");
-        String companyName = consoleBuilder.textConsoleInput( "Company name:");
+        String name = consoleBuilder.textConsoleInput("Name:");
+        String phoneNumber = String.valueOf(consoleBuilder.numberConsoleInput("Phone number:",999999999,1000000000));
+        String email = consoleBuilder.emailConsoleInput("Email:");
+        String companyName = consoleBuilder.textConsoleInput("Company name:");
 
         if (!name.isBlank() && !phoneNumber.isBlank() && !email.isBlank() && !companyName.isBlank()) {
             Lead lead = new Lead(name, phoneNumber, email, companyName);
@@ -78,7 +78,7 @@ public class Menu {
 
     private void searchLead(LeadList leadList) {
         if (leadList.size() > 0) {
-            int id = consoleBuilder.numberConsoleInput( "Enter lead Id:", leadList.getAllIds());
+            int id = consoleBuilder.numberConsoleInput("Enter lead Id:", leadList.getAllIds());
             System.out.println(leadList.getLeadById(id));
         } else {
             System.out.println("No existing leads to search");
@@ -88,45 +88,42 @@ public class Menu {
     private void convertId(LeadList leadList) {
         if (leadList.size() > 0) {
             System.out.println(" ");
-            int id = consoleBuilder.numberConsoleInput( "Enter lead id to convert to opportunity:", leadList.getAllIds());
-            Lead leadConvert = leadList.getLeadById(id);
-            Contact contact = new Contact(leadConvert, leadList);
-            System.out.println("-----------------------------------------");
-            System.out.println("Now the lead with id " + id + " is a new contact.");
-            System.out.println("-----------------------------------------");
+            int id = consoleBuilder.numberConsoleInput("Enter lead id to convert to opportunity:", leadList.getAllIds());
+            Account account = new Account(leadList.getLeadById(id).getCompanyName());
+            Contact contact = new Contact(leadList.getLeadById(id), leadList);
             ArrayList<Product> productList = new ArrayList<>();
             boolean doneOrder = false;
+            int count = 0;
             while (!doneOrder) {
-                List<String> options = Arrays.asList("HYBRID","FLATBED","BOX","DONE");
+                count ++;
+                List<String> options = Arrays.asList("HYBRID", "FLATBED", "BOX", "DONE");
+                if(count == 1) {
+                    options = Arrays.asList("HYBRID", "FLATBED", "BOX");
+                }
                 option = consoleBuilder.listConsoleInput("In which type of product are you interested?", options);
                 if (option.equals("DONE")) {
                     doneOrder = true;
                 } else {
                     TypeOfProduct type = TypeOfProduct.valueOf(option);
-                    int quantity = consoleBuilder.numberConsoleInput("How many of those?", 1,999);
+                    int quantity = consoleBuilder.numberConsoleInput("How many of "+ option+ "?", 1, 999);
                     Product product = new Product(type, quantity);
                     productList.add(product);
                     System.out.println(productList);
                 }
             }
             Opportunity opportunity = new Opportunity(productList, contact);
-            opportunityList.addOpportunity(opportunity);
 
-            List<String> options = Arrays.asList("PRODUCE","ECOMMERCE","MANUFACTURING","MEDICAL","OTHER");
+
+            List<String> options = Arrays.asList("PRODUCE", "ECOMMERCE", "MANUFACTURING", "MEDICAL", "OTHER");
             option = consoleBuilder.listConsoleInput("The opportunity has been created successfully.", options);
-            Industry industry = Industry.valueOf(option);
-
-            int numberSelected = consoleBuilder.numberConsoleInput("Number of employees of the company:");
-            String citySelected = consoleBuilder.textConsoleInput("Company city: ");
-            String countrySelected = consoleBuilder.textConsoleInput("Company country: ");
-
-            Account account = new Account(industry, numberSelected, citySelected, countrySelected);
+            account.setIndustry(Industry.valueOf(option));
+            account.setNumberOfEmployees(consoleBuilder.numberConsoleInput("Number of employees of the company:"));
+            account.setCity(consoleBuilder.textConsoleInput("Company city: "));
+            account.setCountry(consoleBuilder.textConsoleInput("Company country: "));
             account.addContactToList(contact);
-            account.addOpportunityToList(opportunity);
-            System.out.println("Account saved successfully.");
-            System.out.println("-----------------------------------------");
-            System.out.println(account);
-            System.out.println("-----------------------------------------");
+            opportunity.setAccount(account);
+            opportunityList.addOpportunity(opportunity);
+            System.out.println("Opportunity created: " + opportunity);
         } else {
             System.out.println("No existing leads to convert");
         }
@@ -142,16 +139,16 @@ public class Menu {
         System.out.println(opportunityList.showAllOpportunities());
         System.out.println("---------------------");
         System.out.print("Select opportunity id: ");
-        int id = consoleBuilder.numberConsoleInput("Select opportunity id: ",opportunityList.getAllOpportunitiesId());
+        int id = consoleBuilder.numberConsoleInput("Select opportunity id: ", opportunityList.getAllOpportunitiesId());
         Opportunity chosenOpportunity = opportunityList.getOpportunityById(id);
         System.out.println(chosenOpportunity);
         System.out.println("What should be the new status?");
         System.out.println("---------------------");
         List<String> options = Arrays.asList(CLOSED_LOST.toString(), CLOSED_WON.toString());
-        String newStatus = consoleBuilder.listConsoleInput("What should be the new status?",options);
+        String newStatus = consoleBuilder.listConsoleInput("What should be the new status?", options);
         if (newStatus.equals(CLOSED_LOST.toString())) {
             chosenOpportunity.setStatus(CLOSED_LOST);
-        } else{
+        } else {
             chosenOpportunity.setStatus(CLOSED_WON);
         }
         System.out.println("New status: " + chosenOpportunity.getStatus());

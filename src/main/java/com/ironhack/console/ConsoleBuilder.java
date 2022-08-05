@@ -31,14 +31,35 @@ public class ConsoleBuilder {
         while(!isValid){
             System.out.println(message);
             String choice = scanner.nextLine();
-            for(Integer option : options){
-                if(option == Integer.parseInt(choice)){
-                    isValid = true;
-                    result  = Integer.parseInt(choice);
+            try{
+                for(Integer option : options){
+                    if(option == Integer.parseInt(choice)){
+                        isValid = true;
+                        result  = Integer.parseInt(choice);
+                    }
                 }
-            }
+                }catch (NumberFormatException e){
+
+                }
+
             if(!isValid){
                 System.out.println("Please select a valid option");            }
+
+        }
+        return result;
+    }
+    public String emailConsoleInput(String message) {
+        String result = "";
+        boolean isValid = false;
+        while(!isValid){
+            System.out.println(message);
+            String choice = scanner.nextLine();
+            if(choice.contains("@")&&choice.contains(".")&&choice.length()>0 && choice.length()<=50){
+                isValid = true;
+                result  = choice;
+            }
+            if(!isValid){
+                System.out.println("Please select a valid email address");            }
 
         }
         return result;
