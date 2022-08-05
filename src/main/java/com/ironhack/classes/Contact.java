@@ -8,31 +8,24 @@ public class Contact {
     private String name;
     private String phoneNumber;
     private String email;
-    private String companyName;
 
-    public Contact(Lead lead,LeadList leadList) {
+    public Contact() {
+    }
+
+    public Contact(Lead lead, LeadList leadList) {
         setContactId();
         setName(lead.getName());
         setPhoneNumber(lead.getPhoneNumber());
         setEmail(lead.getEmail());
-        setCompanyName(lead.getCompanyName());
         leadList.removeLead(lead);
+    }
+
+    public void setContactId() {
+        this.contactId = Generators.randomBasedGenerator().generate().toString();
     }
 
     public String getName() {
         return name;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getCompanyName() {
-        return companyName;
     }
 
     public void setName(String name) {
@@ -47,25 +40,11 @@ public class Contact {
         this.email = email;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public String getContactId() {
-        return contactId;
-    }
-
-    public void setContactId() {
-        this.contactId = Generators.randomBasedGenerator().generate().toString();
-    }
-
     @Override
     public String toString() {
         return  "ContactId: " + contactId + '\n' +
                 "Name: " + name + '\n' +
                 "PhoneNumber: " + phoneNumber + '\n' +
-                "Email: " + email + '\n' +
-                "CompanyName:" + companyName;
-
+                "Email: " + email + '\n';
     }
 }
