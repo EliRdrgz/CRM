@@ -29,6 +29,10 @@ public class OpportunityList {
         return response;
     }
 
+    public Opportunity get(int index) {
+        return opportunities.get(index);
+    }
+
     public Opportunity getOpportunityById(int id){
         for (Opportunity opportunity : opportunities) {
             if(opportunity.getId() == id) return opportunity;

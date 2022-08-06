@@ -3,7 +3,7 @@ package com.ironhack.menu;
 
 import com.ironhack.classes.*;
 import com.ironhack.console.ConsoleBuilder;
-import com.ironhack.demo.DemoData;
+import com.ironhack.demo.DemoDataLoader;
 import com.ironhack.enums.Industry;
 import com.ironhack.enums.TypeOfProduct;
 
@@ -14,25 +14,26 @@ import com.ironhack.classes.Lead;
 import static com.ironhack.enums.OpportunityStatus.*;
 
 public class Menu {
-    Scanner scanner ;
-    ConsoleBuilder consoleBuilder ;
+    Scanner scanner;
+    ConsoleBuilder consoleBuilder;
 
     private String option;
     LeadList leadList;
 
     OpportunityList opportunityList;
 
-    public Menu(Scanner scanner,LeadList leadList,OpportunityList opportunityList) {
+    public Menu(Scanner scanner, LeadList leadList, OpportunityList opportunityList) {
         this.scanner = scanner;
         this.consoleBuilder = new ConsoleBuilder(scanner);
         this.leadList = leadList;
         this.opportunityList = opportunityList;
     }
 
-    public void start() {
+    public void start() throws InterruptedException {
         boolean exit = false;
         while (!exit) {
-            List<String> options = Arrays.asList("New lead", "Show leads", "Lookup Lead id", "Convert id", "Search opportunity by company name", "Load demo data", "Edit opportunity", "Exit");
+            List<String> options = Arrays.asList("New lead", "Show leads", "Lookup Lead id", "Convert id",
+                    "Search " + "opportunity by company name", "Edit opportunity", "Load demo data", "Exit");
             option = consoleBuilder.listConsoleInput("Welcome to CRM. What would you like to do?", options);
             switch (option) {
                 case "NEW LEAD" -> newLeadInfo();
@@ -54,7 +55,7 @@ public class Menu {
         System.out.println("------------------");
 
         String name = consoleBuilder.textConsoleInput("Name:");
-        String phoneNumber = String.valueOf(consoleBuilder.numberConsoleInput("Phone number:",999999999,1000000000));
+        String phoneNumber = String.valueOf(consoleBuilder.numberConsoleInput("Phone number:", 999999999, 1000000000));
         String email = consoleBuilder.emailConsoleInput("Email:");
         String companyName = consoleBuilder.textConsoleInput("Company name:");
 
@@ -90,16 +91,17 @@ public class Menu {
     private void convertId() {
         if (leadList.size() > 0) {
             System.out.println(" ");
-            int id = consoleBuilder.numberConsoleInput("Enter lead id to convert to opportunity:", leadList.getAllIds());
+            int id = consoleBuilder.numberConsoleInput("Enter lead id to convert to opportunity:",
+                    leadList.getAllIds());
             Account account = new Account(leadList.getLeadById(id).getCompanyName());
             Contact contact = new Contact(leadList.getLeadById(id), leadList);
             ArrayList<Product> productList = new ArrayList<>();
             boolean doneOrder = false;
             int count = 0;
             while (!doneOrder) {
-                count ++;
+                count++;
                 List<String> options = Arrays.asList("HYBRID", "FLATBED", "BOX", "DONE");
-                if(count == 1) {
+                if (count == 1) {
                     options = Arrays.asList("HYBRID", "FLATBED", "BOX");
                 }
                 option = consoleBuilder.listConsoleInput("In which type of product are you interested?", options);
@@ -107,7 +109,7 @@ public class Menu {
                     doneOrder = true;
                 } else {
                     TypeOfProduct type = TypeOfProduct.valueOf(option);
-                    int quantity = consoleBuilder.numberConsoleInput("How many of "+ option+ "?", 1, 999);
+                    int quantity = consoleBuilder.numberConsoleInput("How many of " + option + "?", 1, 999);
                     Product product = new Product(type, quantity);
                     productList.add(product);
                     System.out.println(productList);
@@ -156,16 +158,10 @@ public class Menu {
         System.out.println("New status: " + chosenOpportunity.getStatus());
     }
 
-    private void loadDemoData() {
-        System.out.print("How many leads? ");
-        int leadsToCreate = scanner.nextInt();
-        DemoData demo = new DemoData();
-        leadList = demo.createDemoLeads(leadsToCreate);
-        if (leadList.size() > 0) {
-            System.out.println("Data loaded correctly");
-        } else {
-            System.out.println("Failed to load data");
-        }
+    private void loadDemoData() throws InterruptedException {
+        DemoDataLoader.loadAllDemo();
+        leadList = DemoDataLoader.demoLeads;
+        opportunityList = DemoDataLoader.demoOpportunities;
     }
 
 }
