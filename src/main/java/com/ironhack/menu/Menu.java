@@ -4,6 +4,7 @@ package com.ironhack.menu;
 import com.ironhack.classes.*;
 import com.ironhack.console.ConsoleBuilder;
 import com.ironhack.demo.DemoData;
+import com.ironhack.demo.LoadDemoData;
 import com.ironhack.enums.Industry;
 import com.ironhack.enums.TypeOfProduct;
 
@@ -29,7 +30,7 @@ public class Menu {
         this.opportunityList = opportunityList;
     }
 
-    public void start() {
+    public void start() throws InterruptedException {
         boolean exit = false;
         while (!exit) {
             List<String> options = Arrays.asList("New lead", "Show leads", "Lookup Lead id", "Convert id", "Search opportunity by company name", "Load demo data", "Edit opportunity", "Exit");
@@ -156,16 +157,10 @@ public class Menu {
         System.out.println("New status: " + chosenOpportunity.getStatus());
     }
 
-    private void loadDemoData() {
-        System.out.print("How many leads? ");
-        int leadsToCreate = scanner.nextInt();
-        DemoData demo = new DemoData();
-        leadList = demo.createDemoLeads(leadsToCreate);
-        if (leadList.size() > 0) {
-            System.out.println("Data loaded correctly");
-        } else {
-            System.out.println("Failed to load data");
-        }
+    private void loadDemoData() throws InterruptedException {
+        LoadDemoData.loadAllDemo();
+        leadList = LoadDemoData.demoLeads;
+        opportunityList = LoadDemoData.opportunitiesList;
     }
 
 }
