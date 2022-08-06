@@ -1,39 +1,80 @@
-# Introducción
+# 💫 Hooligans of Java CRM
 
-Para este proyecto, construirá un sistema de gestión de relaciones con los clientes (CRM). Los CRM son una herramienta que casi todos los equipos de ventas utilizan para realizar un seguimiento de los clientes potenciales y existentes a través del proceso de ventas.
+### 👊 Integrantes del equipo
 
-Salesforce es el CRM más popular en el mercado actualmente. Este breve video explica lo que ofrece Salesforce CRM a un alto nivel.
+- 🏅 Joaquim Pineda
+- 🏅 Eli Rodríguez
+- 🏅 Jose Rodríguez
+- 🏅 Ana Montero
 
-La conclusión más importante del video es que nuestro CRM debería permitirnos:
+---
 
-Seguimiento de clientes potenciales (personas cuya información de contacto hemos recopilado pero que pueden o no estar interesadas en nuestro producto)
-Convertir Leads en Oportunidades (los leads se convierten en oportunidades cuando muestran interés en comprar el producto)
-Asociar una Oportunidad con una Cuenta.
-Asociar contactos con una oportunidad.
-Veamos un caso de uso real:
+### Introducción
 
-LBL Trucking Company vende flotas de camiones a grandes empresas de todo el mundo. Necesitan nuevos clientes, por lo que deciden ofrecer un seminario web gratuito sobre los ahorros de costos asociados con sus nuevos camiones híbridos. Cada persona que se registra en el seminario web se convierte en un líder en su CRM. El CRM almacena el nombre, el número de teléfono, la dirección de correo electrónico y el nombre de la empresa de cada cliente potencial.
+Para este proyecto, se va a construir un sistema de gestión de relaciones de clientes (CRM). </br></br>Al tener
+visibilidad como
+usuarios de CRM, se le ha dado mucha importancia a la experiencia de usuario y a la idea de que sea sobre todo fácil de
+usar. Es por eso que se presenta dos opciones de uso, la clásica consola, y una interfaz gráfica (GUI).
 
-Sara es asociada de ventas en LBL. Después del seminario web, comienza a llamar a todos los nuevos clientes potenciales. Los primeros 5 Leads no están interesados. El sexto líder es Mike de Emerson Produce Company. Mike dice que está interesado en aprender más y le gustaría ver sus precios.
+---
 
-Sara necesita convertir el cliente potencial de Mike en una oportunidad. El ID de cliente potencial de Mike es 134. Sara escribe "Convertir 134" en el CRM.
+### 🛠️ Stack utilizado
 
-CRM comienza creando un nuevo objeto de contacto con la información de contacto del objeto de cliente potencial de Mike.
+* IntelliJ IDEA 2022.1.2 (Ultimate Edition)
+* Java 17
+* Maven 3.8.6
+* JUnit 5
+* Java Swing
 
-Luego, el CRM solicita a Sara el producto que le interesa a Mike (camión híbrido, camión de plataforma o camión con caja) y la cantidad de camiones que le interesa comprar. Sara ingresa la información “Hybrid Truck” y “30”. El CRM crea un nuevo objeto Oportunidad con esta información. Agrega el nuevo objeto Mike Contact como tomador de decisiones para la oportunidad y establece el estado en "ABIERTO".
+---
 
-Luego, el CRM solicita a Sara la industria, el número de empleados, la ciudad y el país de la empresa de Mike. Sara ingresa la información “Produce”, “4000”, “Berlín”, “Alemania”. CRM toma el nombre de la empresa del objeto principal de Mike y crea un nuevo objeto de cuenta con esta información. Agrega el Mike Contacto a la lista de contactos de la Cuenta y la nueva Oportunidad a la lista de oportunidades de la Cuenta.
+### 👁️‍🗨️ Diagramas
 
-Finalmente, el sistema elimina el Mike Lead.
-
-Al día siguiente, Sara quiere buscar la nueva Oportunidad. La identificación de la oportunidad es 24. Ella escribe "búsqueda de oportunidad 24". El CRM muestra la información de la oportunidad.
-
-Quiere llamar a Mike para verificar el trato. Lamentablemente, dice que han decidido comprar a otra empresa de camiones. Sara escribe "cerrado-perdido 24" y el CRM cambia el estado de la oportunidad 24 a "CERRADO-PERDIDO"
-
-
-### Diagrams
-Case diagram
+Diagrama de casos
 ![Case diagram](src/main/java/com/ironhack/img/crm_case_diagram.png?raw=true "Case diagram")
-***
-Class diagram
+---
+Diagrama de clases
 ![Class diagram](src/main/java/com/ironhack/img/crm_class_diagram.png?raw=true "Class diagram")
+
+---
+
+### 💻 Presentación del proyecto
+
+* El proyecto se encuentra dividido en diferentes paquetes, con idea de presentar una clara estructura.</br></br>
+    * `classes`: contiene todas esas clases que sirven para el modelado de la aplicación. Se decide añadir las clases
+      LeadList y OpportunityList, que son las que servirán para almacenar la información y gestionarla (en memoria)
+      .</br></br>
+    * `console`: aquí se delega acciones comunes derivadas del uso de la consola, como pueden ser las validaciones de
+      ciertos campos (no se aceptan dígitos en los nombres, validación de teléfono e emails, etc.), o la muestra de
+      mensajes acordes a la validación de los campos.</br></br>
+    * `demo`: desde aquí se gestiona la creación y carga de los datos demos, para que exista información cuando se
+      quiera probar la aplicación.</br></br>
+    * `enums`: carpeta autodescriptiva, se meten aquí aquellas clases de tipo Enum.</br></br>
+    * `gui`: todo lo relacionado con la parte más visual de la aplicación. Contiene cada vista/panel que conforman la
+      interfaz gráfica de usuario.</br></br>
+    * `img`: carpeta contenedora de todas las imágenes del proyecto.</br></br>
+    * `menu`: clase de peso principal del proyecto, pues une todas las integraciones de diferentes métodos y lógicas.
+      Recoge el _input_ del usuario, implementa los métodos públicos que se encargan de las acciones
+      necesarias, y muestra el _output_ en consola.</br></br>
+    * `persistData`: gestiona la persistencia de datos para no depender sólo de las listas en memoria. Es el primer
+      intento y la funcionalidad no está completamente integrada</br></br>
+    * `test`: contiene las clases que brindan la testeabilidad de la aplicación.</br></br>
+
+---
+
+### 🚀 ¿Cómo se ejecuta?
+
+1. Arranca el [Main](src/main/java/com/ironhack/Main.java) del proyecto
+2. Elige la opción deseada del menú, el cual acepta tanto **selección por dígitos** o por **escritura de comando**
+3. Se aconseja cargar los datos (_Load demo data_, opción **7**) para poder tener una experiencia más completa
+4. Además de los comandos básicos (_New lead_, _Show leads_, _Lookup lead id_, _Convert id_, _Edit opportunity_), se
+   presentan otros de utilidad como son:
+    1. _Search opportunity by company name_ (ahórrate un par de segundos y pulsa opción **5**): permite buscar
+       oportunidades por el nombre de la empresa a la que se vincula
+    2. _Open App_: abre la GUI y para una mayor experiencia de usuario
+    3. ⚠️ IMPORTANTE ⚠️: La implementación de la GUI está en desarrollo, así que no se van a encontrar presente todas
+       las funcionalidades que existen desde la consola. En versiones futuras se podrá encontrar una interfaz más
+       completa
+
+---
+![Thank you!](src/main/java/com/ironhack/img/thank_you.gif?raw=true "Gracias")
