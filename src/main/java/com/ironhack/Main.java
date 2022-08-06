@@ -5,7 +5,6 @@ import com.ironhack.classes.LeadList;
 import com.ironhack.classes.OpportunityList;
 import com.ironhack.menu.Menu;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
