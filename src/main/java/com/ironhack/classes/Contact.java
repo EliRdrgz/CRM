@@ -1,9 +1,7 @@
 package com.ironhack.classes;
 
-import com.fasterxml.uuid.Generators;
-
 public class Contact {
-
+    private static int count = 1;
     private String contactId;
     private String name;
     private String phoneNumber;
@@ -21,7 +19,7 @@ public class Contact {
     }
 
     public void setContactId() {
-        this.contactId = Generators.randomBasedGenerator().generate().toString();
+        this.contactId = "" + count++;
     }
 
     public String getName() {

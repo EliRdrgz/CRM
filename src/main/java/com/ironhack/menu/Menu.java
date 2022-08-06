@@ -10,6 +10,7 @@ import com.ironhack.enums.TypeOfProduct;
 import java.util.*;
 
 import com.ironhack.classes.Lead;
+import com.ironhack.gui.GuiMain;
 
 import static com.ironhack.enums.OpportunityStatus.*;
 
@@ -33,7 +34,7 @@ public class Menu {
         boolean exit = false;
         while (!exit) {
             List<String> options = Arrays.asList("New lead", "Show leads", "Lookup Lead id", "Convert id",
-                    "Search " + "opportunity by company name", "Edit opportunity", "Load demo data", "Exit");
+                    "Search " + "opportunity by company name", "Edit opportunity", "Load demo data", "Open App", "Exit");
             option = consoleBuilder.listConsoleInput("Welcome to CRM. What would you like to do?", options);
             switch (option) {
                 case "NEW LEAD" -> newLeadInfo();
@@ -43,6 +44,7 @@ public class Menu {
                 case "SEARCH OPPORTUNITY BY COMPANY NAME" -> searchOpportunityByCompanyName();
                 case "EDIT OPPORTUNITY" -> editOpportunity();
                 case "LOAD DEMO DATA" -> loadDemoData();
+                case "OPEN APP" -> GuiMain.main(leadList, opportunityList);
                 case "EXIT" -> exit = true;
                 default -> System.out.println("Choose a correct option.");
             }
@@ -55,7 +57,7 @@ public class Menu {
         System.out.println("------------------");
 
         String name = consoleBuilder.textConsoleInput("Name:");
-        String phoneNumber = String.valueOf(consoleBuilder.numberConsoleInput("Phone number:", 999999999, 1000000000));
+        String phoneNumber = String.valueOf(consoleBuilder.numberConsoleInput("Phone number:", 99999999, 1000000000));
         String email = consoleBuilder.emailConsoleInput("Email:");
         String companyName = consoleBuilder.textConsoleInput("Company name:");
 
