@@ -16,6 +16,7 @@ public class Opportunity {
     private Account account;
 
     public Opportunity(ArrayList<Product> productList, Contact decisionMaker, OpportunityStatus status, Account account) {
+        setId();
         this.productList = productList;
         this.decisionMaker = decisionMaker;
         this.status = status;

@@ -38,6 +38,9 @@ public class StoreData {
             try {
                 GsonBuilder gsonBuilder = new GsonBuilder();
                 String data = Files.readString(Path.of("./backup/data.json"), StandardCharsets.UTF_8);
+                if(data.equals("")){
+                    return this.crm;
+                }
                 Gson gson = gsonBuilder.create();
                 return gson.fromJson(data, crm.getClass());
 

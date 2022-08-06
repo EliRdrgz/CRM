@@ -35,7 +35,6 @@ public class Menu {
     }
 
     public void start() {
-        crm = storeData.readData();
         boolean exit = false;
         while (!exit) {
             List<String> options = Arrays.asList("New lead", "Show leads", "Lookup Lead id", "Convert id",
