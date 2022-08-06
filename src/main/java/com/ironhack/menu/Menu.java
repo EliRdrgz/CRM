@@ -7,10 +7,12 @@ import com.ironhack.demo.DemoDataLoader;
 import com.ironhack.enums.Industry;
 import com.ironhack.enums.TypeOfProduct;
 
+import java.io.IOException;
 import java.util.*;
 
 import com.ironhack.classes.Lead;
 import com.ironhack.gui.GuiMain;
+import com.ironhack.persistData.StoreData;
 
 import static com.ironhack.enums.OpportunityStatus.*;
 
@@ -20,7 +22,7 @@ public class Menu {
 
     private String option;
     LeadList leadList;
-
+    StoreData storeData = new StoreData();
     OpportunityList opportunityList;
 
     public Menu(Scanner scanner, LeadList leadList, OpportunityList opportunityList) {
@@ -30,7 +32,7 @@ public class Menu {
         this.opportunityList = opportunityList;
     }
 
-    public void start() throws InterruptedException {
+    public void start()  {
         boolean exit = false;
         while (!exit) {
             List<String> options = Arrays.asList("New lead", "Show leads", "Lookup Lead id", "Convert id",
@@ -49,6 +51,7 @@ public class Menu {
                 default -> System.out.println("Choose a correct option.");
             }
         }
+        StoreData.WriteData(leadList, opportunityList);
     }
 
 
@@ -160,7 +163,7 @@ public class Menu {
         System.out.println("New status: " + chosenOpportunity.getStatus());
     }
 
-    private void loadDemoData() throws InterruptedException {
+    private void loadDemoData()  {
         DemoDataLoader.loadAllDemo();
         leadList = DemoDataLoader.demoLeads;
         opportunityList = DemoDataLoader.demoOpportunities;

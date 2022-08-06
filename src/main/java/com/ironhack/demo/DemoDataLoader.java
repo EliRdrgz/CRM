@@ -14,14 +14,19 @@ public final class DemoDataLoader {
     public static OpportunityList demoOpportunities = new OpportunityList();
     static ArrayList<Account> demoAccounts = new ArrayList<>();
 
-    public static void loadAllDemo() throws InterruptedException {
-        System.out.println("Loading demo data...");
-        demoLeads = demoData.createDemoLeads();
-        demoContacts = demoData.createDemoContacts(demoLeads);
-        demoOpportunities = demoData.createDemoOpportunities(demoContacts);
-        demoAccounts = demoData.createDemoAccounts(demoLeads, demoContacts, demoOpportunities);
+    public static void loadAllDemo() {
+        try {
+            System.out.println("Loading demo data...");
+            demoLeads = demoData.createDemoLeads();
+            demoContacts = demoData.createDemoContacts(demoLeads);
+            demoOpportunities = demoData.createDemoOpportunities(demoContacts);
+            demoAccounts = demoData.createDemoAccounts(demoLeads, demoContacts, demoOpportunities);
 
-        sleep(1500L);
-        System.out.println("Data loaded correctly!");
+            sleep(1500L);
+            System.out.println("Data loaded correctly!");
+        } catch (InterruptedException e) {
+            System.out.println("Error loading data.");
+        }
+
     }
 }

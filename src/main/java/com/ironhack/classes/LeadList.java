@@ -50,6 +50,16 @@ public class LeadList {
         return null;
     }
 
+    public String[][] getAllLeadsToList() {
+        String[][] response = new String[leads.size()][4];
+        for (int i = 0; i < leads.size(); i++) {
+            Lead lead = leads.get(i);
+            String[] temp = new String[]{lead.getName(), lead.getPhoneNumber(), lead.getEmail(), lead.getCompanyName()};
+            response[i] = temp;
+        }
+        return response;
+    }
+
     //TODO: not work at call this method
     @Override
     public String toString() {
