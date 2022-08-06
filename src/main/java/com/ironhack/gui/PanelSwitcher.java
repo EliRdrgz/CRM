@@ -20,7 +20,9 @@ public class PanelSwitcher {
         panelSwitcherAddLeadPanel = addLeadPanel;
     }
 
-    public void setConvertLeadPanel(ConvertLeadPanel convertLeadPanel) { panelSwitcherConvertLeadPanel = convertLeadPanel; }
+    public void setConvertLeadPanel(ConvertLeadPanel convertLeadPanel) {
+        panelSwitcherConvertLeadPanel = convertLeadPanel;
+    }
 
     public void setMainWindow(MainWindow mainWindow) {
         panelSwitcherMainWindow = mainWindow;

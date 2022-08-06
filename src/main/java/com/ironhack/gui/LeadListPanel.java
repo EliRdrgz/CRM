@@ -1,7 +1,5 @@
 package com.ironhack.gui;
 
-import com.ironhack.classes.LeadList;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -34,12 +32,12 @@ public class LeadListPanel extends JPanel {
 
         title = new JLabel("List of active leads");
         title.setFont(new Font("Tahoma", Font.BOLD, 22));
-        title.setBounds(5,0, 250, 30);
+        title.setBounds(5, 0, 250, 30);
         panel.add(title);
 
-       table = new JTable(data, columnNames);
-       table.setBounds(20, 60, 600, 250);
-       panel.add(table);
+        table = new JTable(data, columnNames);
+        table.setBounds(20, 60, 600, 250);
+        panel.add(table);
 
         panel.setOpaque(false);
         panel.setLayout(null);

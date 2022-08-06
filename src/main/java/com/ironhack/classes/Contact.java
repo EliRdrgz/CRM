@@ -40,7 +40,7 @@ public class Contact {
 
     @Override
     public String toString() {
-        return  "ContactId: " + contactId + '\n' +
+        return "ContactId: " + contactId + '\n' +
                 "Name: " + name + '\n' +
                 "PhoneNumber: " + phoneNumber + '\n' +
                 "Email: " + email;

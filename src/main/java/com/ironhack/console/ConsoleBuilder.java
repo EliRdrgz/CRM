@@ -1,7 +1,6 @@
 package com.ironhack.console;
 
 
-
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,96 +11,100 @@ public class ConsoleBuilder {
         this.scanner = sc;
     }
 
-    public String textConsoleInput( String message) {
+    public String textConsoleInput(String message) {
         String result = "";
         boolean isValid = false;
-        while(!isValid){
+        while (!isValid) {
             System.out.println(message);
             result = scanner.nextLine();
-            if(result.trim().length() > 0){
+            if (result.trim().length() > 0) {
                 isValid = true;
             }
         }
         return result.trim();
     }
 
-    public int numberConsoleInput(String message,int[] options) {
+    public int numberConsoleInput(String message, int[] options) {
         int result = 0;
         boolean isValid = false;
-        while(!isValid){
+        while (!isValid) {
             System.out.println(message);
             String choice = scanner.nextLine();
-            try{
-                for(Integer option : options){
-                    if(option == Integer.parseInt(choice)){
+            try {
+                for (Integer option : options) {
+                    if (option == Integer.parseInt(choice)) {
                         isValid = true;
-                        result  = Integer.parseInt(choice);
+                        result = Integer.parseInt(choice);
                     }
                 }
-                }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
 
-                }
+            }
 
-            if(!isValid){
-                System.out.println("Please select a valid option");            }
+            if (!isValid) {
+                System.out.println("Please select a valid option");
+            }
 
         }
         return result;
     }
+
     public String emailConsoleInput(String message) {
         String result = "";
         boolean isValid = false;
-        while(!isValid){
+        while (!isValid) {
             System.out.println(message);
             String choice = scanner.nextLine();
-            if(choice.contains("@")&&choice.contains(".")&&choice.length()>0 && choice.length()<=50){
+            if (choice.contains("@") && choice.contains(".") && choice.length() > 0 && choice.length() <= 50) {
                 isValid = true;
-                result  = choice;
+                result = choice;
             }
-            if(!isValid){
-                System.out.println("Please select a valid email address");            }
+            if (!isValid) {
+                System.out.println("Please select a valid email address");
+            }
 
         }
         return result;
     }
 
-    public int numberConsoleInput(String message,int min, int max) {
+    public int numberConsoleInput(String message, int min, int max) {
         int result = 0;
         boolean isValid = false;
-        while(!isValid){
+        while (!isValid) {
             System.out.println(message);
             String choice = scanner.nextLine();
-            try{
+            try {
                 result = Integer.parseInt(choice);
-                if(result >= min && result <= max){
+                if (result >= min && result <= max) {
                     isValid = true;
-                                    }
-                if(!isValid){
+                }
+                if (!isValid) {
                     System.out.println("Please select a valid option");
                 }
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Please select a valid option");
             }
 
         }
         return result;
     }
+
     public int numberConsoleInput(String message) {
         int result = 0;
         boolean isValid = false;
-        while(!isValid){
+        while (!isValid) {
             System.out.println(message);
             String choice = scanner.nextLine();
-            try{
+            try {
                 result = Integer.parseInt(choice);
-                if(result>0){
+                if (result > 0) {
                     isValid = true;
                 }
 
-                if(!isValid){
+                if (!isValid) {
                     System.out.println("Please select a valid option");
                 }
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Please select a valid option");
             }
 
@@ -110,8 +113,8 @@ public class ConsoleBuilder {
     }
 
 
-    public String listConsoleInput( String title, List<String> options) {
-        String inputData ;
+    public String listConsoleInput(String title, List<String> options) {
+        String inputData;
         String result = "";
         boolean isValid = false;
         while (!isValid) {
@@ -131,14 +134,14 @@ public class ConsoleBuilder {
                     System.out.println("Choose a correct option.");
                 }
             } catch (NumberFormatException e) {
-                for(String option : options) {
-                    if(option.equalsIgnoreCase(inputData)) {
+                for (String option : options) {
+                    if (option.equalsIgnoreCase(inputData)) {
                         isValid = true;
                         result = option;
                     }
 
                 }
-                if(!isValid) {
+                if (!isValid) {
                     System.out.println("Choose a correct option.");
                 }
             }

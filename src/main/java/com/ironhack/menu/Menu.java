@@ -3,36 +3,39 @@ package com.ironhack.menu;
 
 import com.ironhack.classes.*;
 import com.ironhack.console.ConsoleBuilder;
+import com.ironhack.data.CrmData;
 import com.ironhack.demo.DemoDataLoader;
 import com.ironhack.enums.Industry;
 import com.ironhack.enums.TypeOfProduct;
-
-import java.io.IOException;
-import java.util.*;
-
-import com.ironhack.classes.Lead;
 import com.ironhack.gui.GuiMain;
 import com.ironhack.persistData.StoreData;
 
-import static com.ironhack.enums.OpportunityStatus.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+import static com.ironhack.enums.OpportunityStatus.CLOSED_LOST;
+import static com.ironhack.enums.OpportunityStatus.CLOSED_WON;
 
 public class Menu {
     Scanner scanner;
     ConsoleBuilder consoleBuilder;
 
     private String option;
-    LeadList leadList;
-    StoreData storeData = new StoreData();
-    OpportunityList opportunityList;
+    CrmData crm;
+    StoreData storeData;
 
-    public Menu(Scanner scanner, LeadList leadList, OpportunityList opportunityList) {
+    public Menu(Scanner scanner, CrmData crm, StoreData store) {
         this.scanner = scanner;
         this.consoleBuilder = new ConsoleBuilder(scanner);
-        this.leadList = leadList;
-        this.opportunityList = opportunityList;
+        this.crm = crm;
+        this.storeData = store;
+
     }
 
-    public void start()  {
+    public void start() {
+        crm = storeData.readData();
         boolean exit = false;
         while (!exit) {
             List<String> options = Arrays.asList("New lead", "Show leads", "Lookup Lead id", "Convert id",
@@ -45,13 +48,13 @@ public class Menu {
                 case "CONVERT ID" -> convertId();
                 case "SEARCH OPPORTUNITY BY COMPANY NAME" -> searchOpportunityByCompanyName();
                 case "EDIT OPPORTUNITY" -> editOpportunity();
-                case "LOAD DEMO DATA" -> loadDemoData();
-                case "OPEN APP" -> GuiMain.main(leadList, opportunityList);
+                case "LOAD DEMO DATA" -> loadDemoData(crm);
+                case "OPEN APP" -> GuiMain.main(crm.leadList, crm.opportunityList);
                 case "EXIT" -> exit = true;
                 default -> System.out.println("Choose a correct option.");
             }
         }
-        StoreData.WriteData(leadList, opportunityList);
+        storeData.save();
     }
 
 
@@ -66,7 +69,7 @@ public class Menu {
 
         if (!name.isBlank() && !phoneNumber.isBlank() && !email.isBlank() && !companyName.isBlank()) {
             Lead lead = new Lead(name, phoneNumber, email, companyName);
-            leadList.addLead(lead);
+            crm.leadList.addLead(lead);
             System.out.println("Lead created: " + lead);
         } else {
             System.out.println("ERROR!! Enter all details");
@@ -74,9 +77,10 @@ public class Menu {
     }
 
     private void showLeads() {
-        if (leadList.size() > 0) {
-            System.out.println("Total leads at the data base: " + leadList.size());
-            Map<Integer, String> allLeads = leadList.showAllLeads();
+        if (crm.leadList.size() > 0) {
+            System.out.println("Total leads at the data base: " + crm.leadList.size());
+            String allLeads = crm.leadList.showAllLeads();
+
             System.out.println(allLeads);
         } else {
             System.out.println("No existing leads to show");
@@ -85,21 +89,21 @@ public class Menu {
     }
 
     private void searchLead() {
-        if (leadList.size() > 0) {
-            int id = consoleBuilder.numberConsoleInput("Enter lead Id:", leadList.getAllIds());
-            System.out.println(leadList.getLeadById(id));
+        if (crm.leadList.size() > 0) {
+            int id = consoleBuilder.numberConsoleInput("Enter lead Id:", crm.leadList.getAllIds());
+            System.out.println(crm.leadList.getLeadById(id));
         } else {
             System.out.println("No existing leads to search");
         }
     }
 
     private void convertId() {
-        if (leadList.size() > 0) {
+        if (crm.leadList.size() > 0) {
             System.out.println(" ");
             int id = consoleBuilder.numberConsoleInput("Enter lead id to convert to opportunity:",
-                    leadList.getAllIds());
-            Account account = new Account(leadList.getLeadById(id).getCompanyName());
-            Contact contact = new Contact(leadList.getLeadById(id), leadList);
+                    crm.leadList.getAllIds());
+            Account account = new Account(crm.leadList.getLeadById(id).getCompanyName());
+            Contact contact = new Contact(crm.leadList.getLeadById(id), crm.leadList);
             ArrayList<Product> productList = new ArrayList<>();
             boolean doneOrder = false;
             int count = 0;
@@ -131,7 +135,7 @@ public class Menu {
             account.setCountry(consoleBuilder.textConsoleInput("Company country: "));
             account.addContactToList(contact);
             opportunity.setAccount(account);
-            opportunityList.addOpportunity(opportunity);
+            crm.opportunityList.addOpportunity(opportunity);
             System.out.println("Opportunity created: " + opportunity);
         } else {
             System.out.println("No existing leads to convert");
@@ -141,15 +145,15 @@ public class Menu {
     private void searchOpportunityByCompanyName() {
         System.out.println("Please enter company name to search opportunities: ");
         String name = scanner.nextLine();
-        System.out.println(opportunityList.searchByCompanyName(name));
+        System.out.println(crm.opportunityList.searchByCompanyName(name));
     }
 
     private void editOpportunity() {
-        System.out.println(opportunityList.showAllOpportunities());
+        System.out.println(crm.opportunityList.showAllOpportunities());
         System.out.println("---------------------");
         System.out.print("Select opportunity id: ");
-        int id = consoleBuilder.numberConsoleInput("Select opportunity id: ", opportunityList.getAllOpportunitiesId());
-        Opportunity chosenOpportunity = opportunityList.getOpportunityById(id);
+        int id = consoleBuilder.numberConsoleInput("Select opportunity id: ", crm.opportunityList.getAllOpportunitiesId());
+        Opportunity chosenOpportunity = crm.opportunityList.getOpportunityById(id);
         System.out.println(chosenOpportunity);
         System.out.println("What should be the new status?");
         System.out.println("---------------------");
@@ -163,10 +167,10 @@ public class Menu {
         System.out.println("New status: " + chosenOpportunity.getStatus());
     }
 
-    private void loadDemoData()  {
+    private void loadDemoData(CrmData data) {
         DemoDataLoader.loadAllDemo();
-        leadList = DemoDataLoader.demoLeads;
-        opportunityList = DemoDataLoader.demoOpportunities;
+        data.addLeadsToList(DemoDataLoader.demoLeads);
+        data.addOpportunitysToList(DemoDataLoader.demoOpportunities);
     }
 
 }

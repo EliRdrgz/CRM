@@ -9,7 +9,7 @@ public class Account {
     private static int counter = 1000;
     private int id;
 
-    private String companyName;
+    private final String companyName;
     private Industry industry;
     private int numberOfEmployees;
     private String city;
@@ -25,7 +25,8 @@ public class Account {
         this.country = country;
         this.companyName = companyName;
     }
-    public Account(String companyName){
+
+    public Account(String companyName) {
         setId();
         this.companyName = companyName;
     }
@@ -33,6 +34,7 @@ public class Account {
     public void setIndustry(Industry industry) {
         this.industry = industry;
     }
+
     public String getCompanyName() {
         return companyName;
     }

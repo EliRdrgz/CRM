@@ -11,12 +11,13 @@ public class Button extends JFrame implements ActionListener {
     public Button() {
         setLayout(null);
         button = new JButton("CLOSE");
-        button.addActionListener(this); add(button);
+        button.addActionListener(this);
+        add(button);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource()==button) System.exit(0);
+        if (e.getSource() == button) System.exit(0);
     }
 }
 

@@ -1,8 +1,7 @@
 package com.ironhack;
 
 
-import com.ironhack.classes.LeadList;
-import com.ironhack.classes.OpportunityList;
+import com.ironhack.data.CrmData;
 import com.ironhack.menu.Menu;
 import com.ironhack.persistData.StoreData;
 
@@ -12,10 +11,10 @@ public class Main {
 
 
     public static void main(String[] args) throws InterruptedException {
-        LeadList leadList =  StoreData.readDataLead();
-        OpportunityList opportunityList =  StoreData.readDataOpportunity();
+        CrmData data = new CrmData();
+        StoreData store = new StoreData(data);
         Scanner scanner = new Scanner(System.in);
-        Menu menu = new Menu(scanner, leadList, opportunityList);
+        Menu menu = new Menu(scanner, data, store);
         menu.start();
 
     }

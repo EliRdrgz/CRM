@@ -16,13 +16,14 @@ public class MainPanel extends JPanel {
         //setPreferredSize(new Dimension(300,100));
         setLayout(null);
     }
+
     private void initializeComponent() {
         panel = new JPanel();
         panel.setBounds(20, 10, 700, 200);
 
         title = new JLabel("Add new lead");
         title.setFont(new Font("Tahoma", Font.BOLD, 22));
-        title.setBounds(5,0, 250, 30);
+        title.setBounds(5, 0, 250, 30);
         panel.add(title);
 
         /*JButton b1 = new JButton("Add new Lead");

@@ -31,13 +31,13 @@ public class MainWindow extends JDialog implements ActionListener {
         // Main title
         title = new JLabel("Hooligans SalesForce CRM");
         title.setFont(new Font("Tahoma", Font.BOLD, 30));
-        title.setBounds(20,20, 500, 50);
+        title.setBounds(20, 20, 500, 50);
         getContentPane().add(title);
 
 
         //Exit button
-        exitBtn=new JButton();
-        exitBtn.setBounds(680,20,100,40);
+        exitBtn = new JButton();
+        exitBtn.setBounds(680, 20, 100, 40);
         exitBtn.setText("Exit");
         exitBtn.addActionListener(this);
         getContentPane().add(exitBtn);
@@ -48,7 +48,7 @@ public class MainWindow extends JDialog implements ActionListener {
         initialView.addActionListener(this);
         getContentPane().add(initialView);*/
 
-        newLeadBtn=new JButton();
+        newLeadBtn = new JButton();
         newLeadBtn.setText("New Lead");
         newLeadBtn.setBounds(20, 80, 140, 50);
         newLeadBtn.addActionListener(this);
@@ -84,21 +84,21 @@ public class MainWindow extends JDialog implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource()==newLeadBtn){
+        if (e.getSource() == newLeadBtn) {
             panelSwitcher.loadPanels(Panels.ADD_LEAD.ordinal());
         }
-        if(e.getSource()==listOfLeads) {
+        if (e.getSource() == listOfLeads) {
             panelSwitcher.loadPanels(Panels.LIST_LEAD.ordinal());
         }
-        if(e.getSource()==convertLead) {
+        if (e.getSource() == convertLead) {
             panelSwitcher.loadPanels(Panels.CONVERT_LEAD.ordinal());
         }
 
-        if (e.getSource()==exitBtn){
+        if (e.getSource() == exitBtn) {
             int answer = JOptionPane.showConfirmDialog(this,
                     "Are you sure you want to leave?", "Confirm exit",
                     JOptionPane.YES_NO_OPTION);
-            if (answer == JOptionPane.YES_NO_OPTION){
+            if (answer == JOptionPane.YES_NO_OPTION) {
                 System.exit(0);
             }
         }

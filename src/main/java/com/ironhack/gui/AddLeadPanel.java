@@ -32,7 +32,7 @@ public class AddLeadPanel extends JPanel implements ActionListener {
 
         title = new JLabel("Add new lead");
         title.setFont(new Font("Tahoma", Font.BOLD, 22));
-        title.setBounds(5,0, 250, 30);
+        title.setBounds(5, 0, 250, 30);
         panel.add(title);
 
         nameLabel = new JLabel("Name: ");
@@ -60,7 +60,7 @@ public class AddLeadPanel extends JPanel implements ActionListener {
         companyName.setBounds(200, 180, 300, 40);
 
         saveLead = new JButton();
-        saveLead.setBounds(560,10,100,40);
+        saveLead.setBounds(560, 10, 100, 40);
         saveLead.setText("Save lead");
         saveLead.addActionListener(this);
 
@@ -86,14 +86,14 @@ public class AddLeadPanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == saveLead) {
+        if (e.getSource() == saveLead) {
             int answer = JOptionPane.showConfirmDialog(this,
-                "Do you want to save this lead?", "Add new lead",
-                JOptionPane.YES_NO_OPTION);
-            if (answer == JOptionPane.YES_NO_OPTION){
-                Lead lead = new Lead(name.getText(),phoneNumber.getText(),email.getText(),companyName.getText());
+                    "Do you want to save this lead?", "Add new lead",
+                    JOptionPane.YES_NO_OPTION);
+            if (answer == JOptionPane.YES_NO_OPTION) {
+                Lead lead = new Lead(name.getText(), phoneNumber.getText(), email.getText(), companyName.getText());
                 leadList.addLead(lead);
-                JOptionPane.showMessageDialog(null, "Lead created:  " + lead) ;
+                JOptionPane.showMessageDialog(null, "Lead created:  " + lead);
             }
         }
     }

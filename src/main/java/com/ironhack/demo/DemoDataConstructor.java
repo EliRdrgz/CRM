@@ -84,7 +84,7 @@ public class DemoDataConstructor {
             Opportunity demoOpportunity = opportunityList.get(i);
             Account demoAccount = new Account(leadList.get(i).getCompanyName());
             demoAccount.setIndustry(demoIndustry);
-            demoAccount.setNumberOfEmployees(faker.random().nextInt(20,1000));
+            demoAccount.setNumberOfEmployees(faker.random().nextInt(20, 1000));
             demoAccount.setCity(address.city());
             demoAccount.setCountry(address.country());
             demoAccount.addContactToList(contactList.get(i));

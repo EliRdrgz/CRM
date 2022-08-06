@@ -15,6 +15,12 @@ public class Opportunity {
 
     private Account account;
 
+    public Opportunity(ArrayList<Product> productList, Contact decisionMaker, OpportunityStatus status, Account account) {
+        this.productList = productList;
+        this.decisionMaker = decisionMaker;
+        this.status = status;
+        this.account = account;
+    }
 
     public Opportunity(ArrayList<Product> productList, Contact decisionMaker) {
         setId();
@@ -47,10 +53,18 @@ public class Opportunity {
         this.status = status;
     }
 
+    public ArrayList<Product> getProductList() {
+        return productList;
+    }
+
+    public Contact getDecisionMaker() {
+        return decisionMaker;
+    }
+
     @Override
     public String toString() {
         return "Opportunity{" + "id=" + id + ", productList=" + productList + ", decisionMaker=" + decisionMaker.toString() + "," +
-                " status=" + status +'}' + "\n";
+                " status=" + status + '}' + "\n";
     }
 
 

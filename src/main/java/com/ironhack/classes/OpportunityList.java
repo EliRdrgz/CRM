@@ -2,16 +2,16 @@ package com.ironhack.classes;
 
 import com.ironhack.enums.OpportunityStatus;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class OpportunityList {
-    public ArrayList<Opportunity> opportunities= new ArrayList<>();
+    public ArrayList<Opportunity> opportunities = new ArrayList<>();
 
     public void addOpportunity(Opportunity opportunity) {
         opportunities.add(opportunity);
     }
-    public String showAllOpportunities(){
+
+    public String showAllOpportunities() {
         String response = "";
         for (Opportunity opportunity : opportunities) {
 
@@ -19,7 +19,8 @@ public class OpportunityList {
         }
         return response;
     }
-    public String showOpenOpportunities(){
+
+    public String showOpenOpportunities() {
         String response = "";
         for (Opportunity opportunity : opportunities) {
             if (opportunity.getStatus() == OpportunityStatus.OPEN) {
@@ -33,17 +34,18 @@ public class OpportunityList {
         return opportunities.get(index);
     }
 
-    public Opportunity getOpportunityById(int id){
+    public Opportunity getOpportunityById(int id) {
         for (Opportunity opportunity : opportunities) {
-            if(opportunity.getId() == id) return opportunity;
+            if (opportunity.getId() == id) return opportunity;
         }
         return null;
     }
+
     public void removeOpportunity(Opportunity opportunity) {
         opportunities.remove(opportunity);
     }
 
-    public int[] getAllOpportunitiesId(){
+    public int[] getAllOpportunitiesId() {
         int[] ids = new int[opportunities.size()];
         for (int i = 0; i < opportunities.size(); i++) {
             ids[i] = opportunities.get(i).getId();
@@ -51,10 +53,10 @@ public class OpportunityList {
         return ids;
     }
 
-    public ArrayList<Opportunity> searchByCompanyName(String name){
+    public ArrayList<Opportunity> searchByCompanyName(String name) {
         ArrayList<Opportunity> opporunitiesCompany = new ArrayList<>();
-        for(Opportunity opportunity : opportunities){
-            if(opportunity.getAccount().getCompanyName().equalsIgnoreCase(name)){
+        for (Opportunity opportunity : opportunities) {
+            if (opportunity.getAccount().getCompanyName().equalsIgnoreCase(name)) {
                 opporunitiesCompany.add(opportunity);
             }
         }

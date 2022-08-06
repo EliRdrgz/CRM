@@ -2,9 +2,7 @@ package com.ironhack.persistData;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.ironhack.classes.Lead;
-import com.ironhack.classes.LeadList;
-import com.ironhack.classes.OpportunityList;
+import com.ironhack.data.CrmData;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -14,12 +12,19 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class StoreData {
-    public static void WriteData(LeadList leadList, OpportunityList opportunityList) {
+
+    CrmData crm;
+
+    public StoreData(CrmData crm) {
+        this.crm = crm;
+    }
+
+    public void save() {
         try {
             GsonBuilder gsonBuilder = new GsonBuilder();
             BufferedWriter writer = new BufferedWriter(new FileWriter("./backup/data.json"));
             Gson gson = gsonBuilder.create();
-            writer.write(gson.toJson(leadList) + "\n" + gson.toJson(opportunityList));
+            writer.write(gson.toJson(crm));
             writer.close();
 
         } catch (IOException e) {
@@ -28,37 +33,21 @@ public class StoreData {
 
     }
 
-    public static LeadList readDataLead() {
+    public CrmData readData() {
         {
             try {
                 GsonBuilder gsonBuilder = new GsonBuilder();
                 String data = Files.readString(Path.of("./backup/data.json"), StandardCharsets.UTF_8);
-                String leadData = data.split("\n")[0];
                 Gson gson = gsonBuilder.create();
-                return gson.fromJson(leadData, LeadList.class);
+                return gson.fromJson(data, crm.getClass());
 
             } catch (IOException e) {
                 System.out.println("File not found.");
             }
 
         }
-        return new LeadList();
+        return this.crm;
     }
-    public static OpportunityList readDataOpportunity() {
-        {
-            try {
-                GsonBuilder gsonBuilder = new GsonBuilder();
-                String data = Files.readString(Path.of("./backup/data.json"), StandardCharsets.UTF_8);
-                String opporunityData = data.split("\n")[1];
-                Gson gson = gsonBuilder.create();
-                return gson.fromJson(opporunityData, OpportunityList.class);
 
 
-            } catch (IOException e) {
-                System.out.println("File not found.");
-            }
-
-        }
-        return new OpportunityList();
-    }
 }

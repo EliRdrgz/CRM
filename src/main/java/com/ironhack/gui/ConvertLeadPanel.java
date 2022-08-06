@@ -29,7 +29,7 @@ public class ConvertLeadPanel extends JPanel implements ActionListener {
 
         title = new JLabel("Convert lead");
         title.setFont(new Font("Tahoma", Font.BOLD, 22));
-        title.setBounds(5,0, 250, 30);
+        title.setBounds(5, 0, 250, 30);
         panel.add(title);
 
         intro = new JTextPane();
@@ -84,6 +84,7 @@ public class ConvertLeadPanel extends JPanel implements ActionListener {
             }
         }
     }
+
     public void setPanelSwitcher(PanelSwitcher thisPanelSwitcher) {
         panelSwitcher = thisPanelSwitcher;
     }

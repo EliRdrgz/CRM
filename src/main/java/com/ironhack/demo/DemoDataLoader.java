@@ -1,6 +1,9 @@
 package com.ironhack.demo;
 
-import com.ironhack.classes.*;
+import com.ironhack.classes.Account;
+import com.ironhack.classes.Contact;
+import com.ironhack.classes.LeadList;
+import com.ironhack.classes.OpportunityList;
 
 import java.util.ArrayList;
 
@@ -10,7 +13,7 @@ public final class DemoDataLoader {
     static DemoDataConstructor demoData = new DemoDataConstructor();
     public static LeadList demoLeads = new LeadList();
     static ArrayList<Contact> demoContacts = new ArrayList<>();
-//    static ArrayList<Product> productList = new ArrayList<>();
+    //    static ArrayList<Product> productList = new ArrayList<>();
     public static OpportunityList demoOpportunities = new OpportunityList();
     static ArrayList<Account> demoAccounts = new ArrayList<>();
 

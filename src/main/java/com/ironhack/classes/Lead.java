@@ -84,4 +84,9 @@ public class Lead {
                 "EMAIL: " + email + "\n" +
                 "COMPANY: " + companyName;
     }
+
+    public String ToTableString() {
+        return "Lead Id: " + id + "   Name: " + name + "\n";
+
+    }
 }
