@@ -67,7 +67,8 @@ Diagrama de clases
 1. Arranca el [Main](src/main/java/com/ironhack/Main.java) del proyecto
 2. Elige la opción deseada del menú, el cual acepta tanto **selección por dígitos** o por **escritura de comando**
 3. Se aconseja cargar los datos (_Load demo data_, opción **7**) para poder tener una experiencia más completa
-4. Además de los comandos básicos (_New lead_, _Show leads_, _Lookup lead id_, _Convert id_, _Edit opportunity_), se
+4. Otro consejo es que antes de buscar una oportunidad por nombre, te asaegures de que esa compañía se ha asociado ya a una oportunidad
+5. Además de los comandos básicos (_New lead_, _Show leads_, _Lookup lead id_, _Convert id_, _Edit opportunity_), se
    presentan otros de utilidad como son:
     1. _Search opportunity by company name_ (ahórrate un par de segundos y pulsa opción **5**): permite buscar
        oportunidades por el nombre de la empresa a la que se vincula
