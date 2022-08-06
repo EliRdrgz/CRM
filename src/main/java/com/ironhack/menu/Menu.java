@@ -4,6 +4,7 @@ package com.ironhack.menu;
 import com.ironhack.classes.*;
 import com.ironhack.console.ConsoleBuilder;
 import com.ironhack.demo.DemoData;
+import com.ironhack.demo.LoadDemoData;
 import com.ironhack.enums.Industry;
 import com.ironhack.enums.OpportunityStatus;
 import com.ironhack.enums.TypeOfProduct;
@@ -25,7 +26,7 @@ public class Menu {
     OpportunityList opportunityList = new OpportunityList();
 
 
-    public void start() {
+    public void start() throws InterruptedException {
 
         scanner = new Scanner(System.in);
 
@@ -52,7 +53,7 @@ public class Menu {
         System.out.println("------------------");
 
         String name = consoleBuilder.textConsoleInput("Name:");
-        String phoneNumber = String.valueOf(consoleBuilder.numberConsoleInput("Phone number:",999999999,1000000000));
+        String phoneNumber = String.valueOf(consoleBuilder.numberConsoleInput("Phone number:",99999999,1000000000));
         String email = consoleBuilder.emailConsoleInput("Email:");
         String companyName = consoleBuilder.textConsoleInput("Company name:");
 
@@ -105,7 +106,7 @@ public class Menu {
                     doneOrder = true;
                 } else {
                     TypeOfProduct type = TypeOfProduct.valueOf(option);
-                    int quantity = consoleBuilder.numberConsoleInput("How many of "+ option+ "?", 1, 999);
+                    int quantity = consoleBuilder.numberConsoleInput("How many of "+ option + "?", 1, 999);
                     Product product = new Product(type, quantity);
                     productList.add(product);
                     System.out.println(productList);
@@ -137,7 +138,6 @@ public class Menu {
 
     private void editOpportunity(OpportunityList opportunityList) {
         System.out.println(opportunityList.showAllOpportunities());
-        System.out.println("---------------------");
         System.out.print("Select opportunity id: ");
         int id = consoleBuilder.numberConsoleInput("Select opportunity id: ", opportunityList.getAllOpportunitiesId());
         Opportunity chosenOpportunity = opportunityList.getOpportunityById(id);
@@ -154,16 +154,10 @@ public class Menu {
         System.out.println("New status: " + chosenOpportunity.getStatus());
     }
 
-    private void loadDemoData() {
-        System.out.print("How many leads? ");
-        int leadsToCreate = scanner.nextInt();
-        DemoData demo = new DemoData();
-        leadList = demo.createDemoLeads(leadsToCreate);
-        if (leadList.size() > 0) {
-            System.out.println("Data loaded correctly");
-        } else {
-            System.out.println("Failed to load data");
-        }
+    private void loadDemoData() throws InterruptedException {
+        LoadDemoData.loadAllDemo();
+        leadList = LoadDemoData.demoLeads;
+        opportunityList = LoadDemoData.opportunitiesList;
     }
 
 }

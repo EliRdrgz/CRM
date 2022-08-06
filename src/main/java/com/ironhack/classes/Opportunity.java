@@ -50,7 +50,7 @@ public class Opportunity {
     @Override
     public String toString() {
         return "Opportunity{" + "id=" + id + ", productList=" + productList + ", decisionMaker=" + decisionMaker.toString() + "," +
-                " status=" + status + "account"+ account.toString() + '}';
+                " status=" + status + " account" + account.toString() + '}';
     }
 
 

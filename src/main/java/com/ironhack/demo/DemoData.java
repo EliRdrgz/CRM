@@ -1,15 +1,12 @@
 package com.ironhack.demo;
 
-import com.github.javafaker.Address;
 import com.github.javafaker.Faker;
 import com.ironhack.classes.*;
-import com.ironhack.enums.Industry;
 import com.ironhack.enums.TypeOfProduct;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import static com.ironhack.enums.Industry.*;
 import static com.ironhack.enums.TypeOfProduct.*;
 
 public class DemoData {
@@ -70,21 +67,21 @@ public class DemoData {
 
     public ArrayList<Account> createDemoAccounts() {
         ArrayList<Account> demoAccountList = new ArrayList<>();
-        for (int i = 0; i < MAX_CONTACTS; i++) {
-            Address address = faker.address();
-            Industry demoIndustry = null;
-            int industryType = new Random().nextInt(1, 6);
-            switch (industryType) {
-                case 1 -> demoIndustry = PRODUCE;
-                case 2 -> demoIndustry = ECOMMERCE;
-                case 3 -> demoIndustry = MANUFACTURING;
-                case 4 -> demoIndustry = MEDICAL;
-                case 5 -> demoIndustry = OTHER;
-            }
-            Account demoAccount = new Account(demoIndustry, faker.number().randomDigit(), address.city(),
-                    address.country());
-            demoAccountList.add(demoAccount);
-        }
+//        for (int i = 0; i < MAX_CONTACTS; i++) {
+//            Address address = faker.address();
+//            Industry demoIndustry = null;
+//            int industryType = new Random().nextInt(1, 6);
+//            switch (industryType) {
+//                case 1 -> demoIndustry = PRODUCE;
+//                case 2 -> demoIndustry = ECOMMERCE;
+//                case 3 -> demoIndustry = MANUFACTURING;
+//                case 4 -> demoIndustry = MEDICAL;
+//                case 5 -> demoIndustry = OTHER;
+//            }
+//            Account demoAccount = new Account(demoIndustry, faker.number().randomDigit(), address.city(),
+//                    address.country());
+//            demoAccountList.add(demoAccount);
+//        }
         return demoAccountList;
     }
 }

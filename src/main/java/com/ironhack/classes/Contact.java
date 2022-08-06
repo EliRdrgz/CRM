@@ -45,6 +45,6 @@ public class Contact {
         return  "ContactId: " + contactId + '\n' +
                 "Name: " + name + '\n' +
                 "PhoneNumber: " + phoneNumber + '\n' +
-                "Email: " + email + '\n';
+                "Email: " + email;
     }
 }
