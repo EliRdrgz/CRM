@@ -21,6 +21,10 @@ public class Lead {
         return id;
     }
 
+    public String getCompanyName() {
+        return companyName;
+    }
+
     public void setId() {
         this.id = counter++;
     }
