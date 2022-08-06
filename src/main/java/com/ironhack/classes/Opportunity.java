@@ -9,8 +9,8 @@ import static com.ironhack.enums.OpportunityStatus.OPEN;
 public class Opportunity {
     private static int counter = 1;
     private int id;
-    private ArrayList<Product> productList;
-    private Contact decisionMaker;
+    private final ArrayList<Product> productList;
+    private final Contact decisionMaker;
     private OpportunityStatus status;
 
     private Account account;
@@ -50,7 +50,7 @@ public class Opportunity {
     @Override
     public String toString() {
         return "Opportunity{" + "id=" + id + ", productList=" + productList + ", decisionMaker=" + decisionMaker.toString() + "," +
-                " status=" + status + " account" + account.toString() + '}';
+                " status=" + status +'}' + "\n";
     }
 
 

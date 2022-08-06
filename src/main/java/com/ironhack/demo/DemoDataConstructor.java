@@ -1,15 +1,18 @@
 package com.ironhack.demo;
 
+import com.github.javafaker.Address;
 import com.github.javafaker.Faker;
 import com.ironhack.classes.*;
+import com.ironhack.enums.Industry;
 import com.ironhack.enums.TypeOfProduct;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+import static com.ironhack.enums.Industry.*;
 import static com.ironhack.enums.TypeOfProduct.*;
 
-public class DemoData {
+public class DemoDataConstructor {
 
     private final int MAX_LEADS = 60;
     private final int MAX_CONTACTS = 34;
@@ -65,23 +68,30 @@ public class DemoData {
         return demoOpportunityList;
     }
 
-    public ArrayList<Account> createDemoAccounts() {
+    public ArrayList<Account> createDemoAccounts(LeadList leadList, ArrayList<Contact> contactList, OpportunityList opportunityList) {
         ArrayList<Account> demoAccountList = new ArrayList<>();
-//        for (int i = 0; i < MAX_CONTACTS; i++) {
-//            Address address = faker.address();
-//            Industry demoIndustry = null;
-//            int industryType = new Random().nextInt(1, 6);
-//            switch (industryType) {
-//                case 1 -> demoIndustry = PRODUCE;
-//                case 2 -> demoIndustry = ECOMMERCE;
-//                case 3 -> demoIndustry = MANUFACTURING;
-//                case 4 -> demoIndustry = MEDICAL;
-//                case 5 -> demoIndustry = OTHER;
-//            }
-//            Account demoAccount = new Account(demoIndustry, faker.number().randomDigit(), address.city(),
-//                    address.country());
-//            demoAccountList.add(demoAccount);
-//        }
+        for (int i = 0; i < 10; i++) {
+            Address address = faker.address();
+            Industry demoIndustry = null;
+            int industryType = new Random().nextInt(1, 6);
+            switch (industryType) {
+                case 1 -> demoIndustry = PRODUCE;
+                case 2 -> demoIndustry = ECOMMERCE;
+                case 3 -> demoIndustry = MANUFACTURING;
+                case 4 -> demoIndustry = MEDICAL;
+                case 5 -> demoIndustry = OTHER;
+            }
+            Opportunity demoOpportunity = opportunityList.get(i);
+            Account demoAccount = new Account(leadList.get(i).getCompanyName());
+            demoAccount.setIndustry(demoIndustry);
+            demoAccount.setNumberOfEmployees(faker.random().nextInt(20,1000));
+            demoAccount.setCity(address.city());
+            demoAccount.setCountry(address.country());
+            demoAccount.addContactToList(contactList.get(i));
+            demoOpportunity.setAccount(demoAccount);
+            opportunityList.addOpportunity(demoOpportunity);
+            demoAccountList.add(demoAccount);
+        }
         return demoAccountList;
     }
 }

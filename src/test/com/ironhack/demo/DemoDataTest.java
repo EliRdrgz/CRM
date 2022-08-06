@@ -1,17 +1,15 @@
 package com.ironhack.demo;
 
 import com.ironhack.classes.*;
-import com.ironhack.enums.TypeOfProduct;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static com.ironhack.enums.TypeOfProduct.HYBRID;
 import static org.junit.jupiter.api.Assertions.*;
 
 class DemoDataTest {
-    DemoData demoData = new DemoData();
+    DemoDataConstructor demoData = new DemoDataConstructor();
     LeadList leadList = new LeadList();
 
     @BeforeEach

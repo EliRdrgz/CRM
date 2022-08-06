@@ -69,7 +69,7 @@ class ConsoleBuilderTest {
     @Test
     void listConsoleInput_text() {
         List<String> options = Arrays.asList("New lead", "Show leads", "Lookup Lead id", "Convert id", "Search " +
-                "opportunity by company name", "Load demo data", "Edit opportunity", "Exit");
+                "opportunity by company name", "Edit opportunity", "Load demo data", "Exit");
         String response = "New lead";
         Scanner keyboard = new Scanner(response);
         ConsoleBuilder consoleBuilder = new ConsoleBuilder(keyboard);
@@ -81,7 +81,7 @@ class ConsoleBuilderTest {
     @Test
     void listConsoleInput_number() {
         List<String> options = Arrays.asList("New lead", "Show leads", "Lookup Lead id", "Convert id", "Search " +
-                "opportunity by company name", "Load demo data", "Edit opportunity", "Exit");
+                "opportunity by company name", "Edit opportunity", "Load demo data", "Exit");
         String response = "New lead";
         Scanner keyboard = new Scanner("1");
         ConsoleBuilder consoleBuilder = new ConsoleBuilder(keyboard);
