@@ -4,9 +4,7 @@ package com.ironhack.menu;
 import com.ironhack.classes.*;
 import com.ironhack.console.ConsoleBuilder;
 import com.ironhack.demo.DemoData;
-import com.ironhack.demo.LoadDemoData;
 import com.ironhack.enums.Industry;
-import com.ironhack.enums.OpportunityStatus;
 import com.ironhack.enums.TypeOfProduct;
 
 import java.util.*;
@@ -16,30 +14,33 @@ import com.ironhack.classes.Lead;
 import static com.ironhack.enums.OpportunityStatus.*;
 
 public class Menu {
-    Scanner scanner = new Scanner(System.in);
-    boolean exit = false;
-    ConsoleBuilder consoleBuilder = new ConsoleBuilder(scanner);
+    Scanner scanner ;
+    ConsoleBuilder consoleBuilder ;
 
     private String option;
-    LeadList leadList = new LeadList();
+    LeadList leadList;
 
-    OpportunityList opportunityList = new OpportunityList();
+    OpportunityList opportunityList;
 
+    public Menu(Scanner scanner,LeadList leadList,OpportunityList opportunityList) {
+        this.scanner = scanner;
+        this.consoleBuilder = new ConsoleBuilder(scanner);
+        this.leadList = leadList;
+        this.opportunityList = opportunityList;
+    }
 
-    public void start() throws InterruptedException {
-
-        scanner = new Scanner(System.in);
-
+    public void start() {
+        boolean exit = false;
         while (!exit) {
             List<String> options = Arrays.asList("New lead", "Show leads", "Lookup Lead id", "Convert id", "Search opportunity by company name", "Load demo data", "Edit opportunity", "Exit");
             option = consoleBuilder.listConsoleInput("Welcome to CRM. What would you like to do?", options);
             switch (option) {
-                case "NEW LEAD" -> newLeadInfo(leadList);
-                case "SHOW LEADS" -> showLeads(leadList);
-                case "LOOKUP LEAD ID" -> searchLead(leadList);
-                case "CONVERT ID" -> convertId(leadList);
+                case "NEW LEAD" -> newLeadInfo();
+                case "SHOW LEADS" -> showLeads();
+                case "LOOKUP LEAD ID" -> searchLead();
+                case "CONVERT ID" -> convertId();
                 case "SEARCH OPPORTUNITY BY COMPANY NAME" -> searchOpportunityByCompanyName();
-                case "EDIT OPPORTUNITY" -> editOpportunity(opportunityList);
+                case "EDIT OPPORTUNITY" -> editOpportunity();
                 case "LOAD DEMO DATA" -> loadDemoData();
                 case "EXIT" -> exit = true;
                 default -> System.out.println("Choose a correct option.");
@@ -48,12 +49,12 @@ public class Menu {
     }
 
 
-    private void newLeadInfo(LeadList leadList) {
+    private void newLeadInfo() {
         System.out.println("Enter lead details");
         System.out.println("------------------");
 
         String name = consoleBuilder.textConsoleInput("Name:");
-        String phoneNumber = String.valueOf(consoleBuilder.numberConsoleInput("Phone number:",99999999,1000000000));
+        String phoneNumber = String.valueOf(consoleBuilder.numberConsoleInput("Phone number:",999999999,1000000000));
         String email = consoleBuilder.emailConsoleInput("Email:");
         String companyName = consoleBuilder.textConsoleInput("Company name:");
 
@@ -66,7 +67,7 @@ public class Menu {
         }
     }
 
-    private void showLeads(LeadList leadList) {
+    private void showLeads() {
         if (leadList.size() > 0) {
             System.out.println("Total leads at the data base: " + leadList.size());
             Map<Integer, String> allLeads = leadList.showAllLeads();
@@ -77,7 +78,7 @@ public class Menu {
         System.out.println("-----------------------------");
     }
 
-    private void searchLead(LeadList leadList) {
+    private void searchLead() {
         if (leadList.size() > 0) {
             int id = consoleBuilder.numberConsoleInput("Enter lead Id:", leadList.getAllIds());
             System.out.println(leadList.getLeadById(id));
@@ -86,7 +87,7 @@ public class Menu {
         }
     }
 
-    private void convertId(LeadList leadList) {
+    private void convertId() {
         if (leadList.size() > 0) {
             System.out.println(" ");
             int id = consoleBuilder.numberConsoleInput("Enter lead id to convert to opportunity:", leadList.getAllIds());
@@ -106,7 +107,7 @@ public class Menu {
                     doneOrder = true;
                 } else {
                     TypeOfProduct type = TypeOfProduct.valueOf(option);
-                    int quantity = consoleBuilder.numberConsoleInput("How many of "+ option + "?", 1, 999);
+                    int quantity = consoleBuilder.numberConsoleInput("How many of "+ option+ "?", 1, 999);
                     Product product = new Product(type, quantity);
                     productList.add(product);
                     System.out.println(productList);
@@ -136,8 +137,9 @@ public class Menu {
         System.out.println(opportunityList.searchByCompanyName(name));
     }
 
-    private void editOpportunity(OpportunityList opportunityList) {
+    private void editOpportunity() {
         System.out.println(opportunityList.showAllOpportunities());
+        System.out.println("---------------------");
         System.out.print("Select opportunity id: ");
         int id = consoleBuilder.numberConsoleInput("Select opportunity id: ", opportunityList.getAllOpportunitiesId());
         Opportunity chosenOpportunity = opportunityList.getOpportunityById(id);
@@ -154,10 +156,16 @@ public class Menu {
         System.out.println("New status: " + chosenOpportunity.getStatus());
     }
 
-    private void loadDemoData() throws InterruptedException {
-        LoadDemoData.loadAllDemo();
-        leadList = LoadDemoData.demoLeads;
-        opportunityList = LoadDemoData.opportunitiesList;
+    private void loadDemoData() {
+        System.out.print("How many leads? ");
+        int leadsToCreate = scanner.nextInt();
+        DemoData demo = new DemoData();
+        leadList = demo.createDemoLeads(leadsToCreate);
+        if (leadList.size() > 0) {
+            System.out.println("Data loaded correctly");
+        } else {
+            System.out.println("Failed to load data");
+        }
     }
 
 }
